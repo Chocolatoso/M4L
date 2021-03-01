@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const baseConfig = require('./base.config');
 
+
 module.exports = {
     ...baseConfig,
     plugins: [
@@ -8,7 +9,7 @@ module.exports = {
             'process.env': {
                 BROWSER: JSON.stringify(true),
                 NODE_ENV: JSON.stringify('production'),
-                VERSION: "be6083c5b1c30173736d51153363c847db243301"
+                VERSION: "a4acadcd16722991ab5302900d2c5f8f6ee7dcb5c"
             }
         }),
         /*
