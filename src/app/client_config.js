@@ -1,3 +1,5 @@
+import { fromJSOrdered } from './utils/immutable';
+
 const VIBES = {
     APP_NAME: 'MusicForLife',
     APP_ICON: 'musicforlife',
