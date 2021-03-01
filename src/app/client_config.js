@@ -3,7 +3,7 @@ import { fromJSOrdered } from './utils/immutable';
 const VIBES = {
     APP_NAME: 'MusicForLife',
     APP_ICON: 'musicforlife',
-    APP_ICON_WIDTH: '40px',
+    APP_ICON_WIDTH: '240px',
     APP_ICON_HEIGHT: '40px',
     APP_URL: 'https://msf-io.herokuapp.com/',
     APP_DOMAIN: 'msf-io.herokuapp.com',
