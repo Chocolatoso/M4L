@@ -38,6 +38,7 @@ const SidebarToken = ({
         scotTokenStaking / scotTokenCirculating * 100
     );
 
+
     return (
         <div className="c-sidebar__module">
             <div className="c-sidebar__header">

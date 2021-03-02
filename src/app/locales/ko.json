@@ -279,6 +279,7 @@
             "checkbox": "네 이해합니다."
         },
         "total": "Total",
+        "valor":"Value",
         "circulating": "Circulating",
         "burn": "Burn",
         "staking": "Staking",

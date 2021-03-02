@@ -287,6 +287,7 @@
             "checkbox": "I understand"
         },
         "total": "Total",
+        "valor":"Value",
         "circulating": "Circulating",
         "burn": "Burn",
         "staking": "Staking",

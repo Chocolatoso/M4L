@@ -286,6 +286,7 @@
             "checkbox": "Entiendo"
         },
         "total": "Total",
+        "valor":"Valor",
         "circulating": "Circulating",
         "burn": "Burn",
         "staking": "Staking",
@@ -558,7 +559,7 @@
             "other": "%(count)s votos"
         },
         "voting_power": "Voting Power",
-        "estimated_vote": "Estimated Vote Value",
+        "estimated_vote": "Valor de voto estimado",
         "we_will_reset_curation_rewards_for_this_post":
             "Reseteará tus recompensas de curación para este post"
     },

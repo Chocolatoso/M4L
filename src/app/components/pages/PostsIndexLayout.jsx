@@ -95,6 +95,8 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
+                                 <SidebarTokenPrice
+                                />
                             </div>
                         )}
                     {this.props.showTokenStats &&
@@ -122,6 +124,8 @@ class PostsIndexLayout extends React.Component {
                                         ['total_token_miner_balance_staked']
                                     )}
                                     useHive={this.props.hiveEngine}
+                                />
+                                 <SidebarTokenPrice
                                 />
                             </div>
                         )}

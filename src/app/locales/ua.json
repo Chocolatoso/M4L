@@ -288,6 +288,7 @@
             "checkbox": "Я розумію"
         },
         "total": "Усього емітовано",
+        "valor":"Value",
         "circulating": "В обігу",
         "burn": "Спалено",
         "staking": "Застекано",
