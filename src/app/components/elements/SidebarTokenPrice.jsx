@@ -9,10 +9,14 @@ const SidebarTokenPrice = ({
 
 }) => {
 
-const total = [0,0];
-const total2= [0,0];
-//    parsePayoutAmount()
-//    formatDecimal()
+    const total = [0, 0];
+    const total2 = [0, 0];
+    //    parsePayoutAmount()
+    //    formatDecimal()
+
+    componentDidMount =()=> {
+        console.log("MONTANDO COMPONENTE");
+    }
 
     return (
         <div className="c-sidebar__module">
