@@ -13,6 +13,7 @@ import CommunityPane from 'app/components/elements/CommunityPane';
 import CommunityPaneMobile from 'app/components/elements/CommunityPaneMobile';
 import ReviveAd from 'app/components/elements/ReviveAd';
 import SidebarToken from 'app/components/elements/SidebarToken';
+import SidebarTokenPrice from 'app/components/elements/SidebarTokenPrice';
 
 class PostsIndexLayout extends React.Component {
     static propTypes = {
@@ -150,6 +151,8 @@ class PostsIndexLayout extends React.Component {
                                         ]
                                     )}
                                     useHive={this.props.hiveEngine}
+                                />
+                                <SidebarTokenPrice
                                 />
                             </div>
                         )}

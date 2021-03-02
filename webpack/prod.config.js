@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const baseConfig = require('./base.config');
-
+const git = require('git-rev-sync');
 
 module.exports = {
     ...baseConfig,
@@ -9,7 +9,7 @@ module.exports = {
             'process.env': {
                 BROWSER: JSON.stringify(true),
                 NODE_ENV: JSON.stringify('production'),
-                VERSION: "a4acadcd16722991ab5302900d2c5f8f6ee7dcb5c"
+                VERSION: JSON.stringify(git.long())
             }
         }),
         /*
