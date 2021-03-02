@@ -5,8 +5,8 @@ const VIBES = {
     APP_ICON: 'musicforlife',
     APP_ICON_WIDTH: '240px',
     APP_ICON_HEIGHT: '40px',
-    APP_URL: 'https://msf-io.herokuapp.com/',
-    APP_DOMAIN: 'msf-io.herokuapp.com',
+    APP_URL: 'https://mysterious-anchorage-75151.herokuapp.com/',
+    APP_DOMAIN: 'mysterious-anchorage-75151.herokuapp.com',
     LIQUID_TOKEN: 'Vibes',
     LIQUID_TOKEN_UPPERCASE: 'VIBES',
     APP_MAX_TAG: 10,
@@ -43,7 +43,7 @@ const VIBES = {
 export const CONFIG_MAP = {
     // testing heroku/local options
     'localhost:8080': VIBES,
-    'msf-io.herokuapp.com': VIBES
+    'mysterious-anchorage-75151.herokuapp.com': VIBES
 };
 
 // FIXME figure out best way to do this on both client and server from env

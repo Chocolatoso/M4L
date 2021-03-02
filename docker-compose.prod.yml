@@ -1,7 +1,7 @@
-version: "3.7"
+version: "1.0"
 services:
     condenser:
-        image: hiveio/condenser:latest
+        image: mfl:latest
         deploy:
             mode: replicated
             replicas: 4
@@ -21,7 +21,7 @@ services:
                 parallelism: 1
                 delay: 5s
         environment:
-            VIRTUAL_HOST: hive.blog
+            VIRTUAL_HOST: mysterious-anchorage-75151.herokuapp.com
             VIRTUAL_PORT: 8080
             DISABLE_CLUSTERING: true
             SDC_CLIENT_STEEMD_URL: https://api.hive.blog

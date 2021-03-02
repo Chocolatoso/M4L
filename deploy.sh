@@ -1,5 +1,5 @@
-sudo docker build -t registry.heroku.com/frozen-retreat-15997/web .
+sudo docker build -t registry.heroku.com/mysterious-anchorage-75151/web .
 
-sudo docker push registry.heroku.com/frozen-retreat-15997/web:latest
+sudo docker push registry.heroku.com/mysterious-anchorage-75151/web:latest
 
-heroku container:release web --app frozen-retreat-15997
+heroku container:release web --app mysterious-anchorage-75151
