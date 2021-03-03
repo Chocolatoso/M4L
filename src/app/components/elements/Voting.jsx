@@ -8,7 +8,6 @@ import CloseButton from 'app/components/elements/CloseButton';
 import * as transactionActions from 'app/redux/TransactionReducer';
 import Icon from 'app/components/elements/Icon';
 import FormattedAsset from 'app/components/elements/FormattedAsset';
-import FormattedAssetUSD from 'app/components/elements/FormattedAssetUSD';
 import { pricePerSteem } from 'app/utils/StateFunctions';
 import shouldComponentUpdate from 'app/utils/shouldComponentUpdate';
 import {
@@ -563,9 +562,6 @@ class Voting extends React.Component {
                         amount={payout}
                         asset={hostConfig['LIQUID_TOKEN_UPPERCASE']}
                         classname={decline_payout ? 'strikethrough' : ''}
-                    /> 
-                    <FormattedAssetUSD
-                        amount={payout}
                     />
                     {payoutItems.length > 0 && <Icon name="dropdown-arrow" />}
                 </span>
