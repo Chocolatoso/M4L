@@ -8,6 +8,7 @@ import CloseButton from 'app/components/elements/CloseButton';
 import * as transactionActions from 'app/redux/TransactionReducer';
 import Icon from 'app/components/elements/Icon';
 import FormattedAsset from 'app/components/elements/FormattedAsset';
+import FormattedAssetUSD from 'app/components/elements/FormattedAssetUSD';
 import { pricePerSteem } from 'app/utils/StateFunctions';
 import shouldComponentUpdate from 'app/utils/shouldComponentUpdate';
 import {
@@ -54,7 +55,6 @@ class Voting extends React.Component {
     static propTypes = {
         // HTML properties
         showList: PropTypes.bool,
-
         // Redux connect properties
         vote: PropTypes.func.isRequired,
         author: PropTypes.string, // post was deleted
@@ -481,7 +481,7 @@ class Voting extends React.Component {
         if (decline_payout) {
             payoutItems.push({ value: tt('voting_jsx.payout_declined') });
         } else if (cashout_active) {
-            payoutItems.push({ value: 'Pending Payout' });
+            payoutItems.push({ value: tt('voting_jsx.pending_payout') });
             payoutItems.push({
                 value: `${scot_pending_token.toFixed(scotPrecision)} ${
                     hostConfig['LIQUID_TOKEN_UPPERCASE']
@@ -563,6 +563,9 @@ class Voting extends React.Component {
                         amount={payout}
                         asset={hostConfig['LIQUID_TOKEN_UPPERCASE']}
                         classname={decline_payout ? 'strikethrough' : ''}
+                    /> 
+                    <FormattedAssetUSD
+                        amount={payout}
                     />
                     {payoutItems.length > 0 && <Icon name="dropdown-arrow" />}
                 </span>

@@ -404,12 +404,7 @@ class Header extends React.Component {
                                 </DropdownMenu>
                             )}
                             {/*HAMBURGER*/}
-                            <span
-                                onClick={showSidePanel}
-                                className="toggle-menu Header__hamburger"
-                            >
-                                <span className="hamburger" />
-                            </span>
+                           
                         </div>
                     </nav>
                 </header>

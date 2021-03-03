@@ -16,6 +16,8 @@
     align-items: center;
     height: 4rem;
     max-width: none;
+    padding: .3rem 1.2rem;
+    flex-flow: nowrap;
 }
 
 .ConnectionError {
@@ -25,6 +27,7 @@
 
 .Header__logotype {
   transition: 0.2s all ease-in-out;
+  padding-left: 6rem;
   height: 37px;
   display: flex;
   align-items: baseline;

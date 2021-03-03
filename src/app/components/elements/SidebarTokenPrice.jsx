@@ -6,6 +6,7 @@ import {
 } from 'app/utils/ParsersAndFormatters';
 
 export default class SidebarTokenPrice extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = { state: props.initialState, isFetching: true, total: 0, total2: 0, error: false, totalUSD: [0, 0], total2USD: [0, 0] };
@@ -43,22 +44,16 @@ export default class SidebarTokenPrice extends React.Component {
                 fetch("https://api.coingecko.com/api/v3/simple/price?ids=hive&vs_currencies=usd&include_24hr_change=true", {
                     "headers": {
                         "accept": "application/json, text/plain, */*",
-                        "accept-language": "es-419,es;q=0.9",
-                        "sec-fetch-dest": "empty",
-                        "sec-fetch-mode": "cors",
-                        "sec-fetch-site": "cross-site"
-                    },
-                    "referrerPolicy": "strict-origin-when-cross-origin",
-                    "body": null,
-                    "method": "GET",
-                    "mode": "cors",
-                    "credentials": "omit"
+                    }
                 }).then(response => response.json()).then(res => {
                     const hiveValue = res.hive.usd;
+
+                    const totaltemp = result.result[0].lastPrice;
+                    const totaltemp2 = result.result[1].lastPrice;
                     const total = formatDecimal(parsePayoutAmount(result.result[0].lastPrice));
                     const total2 = formatDecimal(parsePayoutAmount(result.result[1].lastPrice));
-                    const totalUSD = formatDecimal(parsePayoutAmount(total * hiveValue));
-                    const total2USD = formatDecimal(parsePayoutAmount(total2 * hiveValue));
+                    const totalUSD = formatDecimal(parsePayoutAmount(totaltemp * hiveValue));
+                    const total2USD = formatDecimal(parsePayoutAmount(totaltemp2 * hiveValue));
 
                     this.setState({ users: result, isFetching: false, error: false, total: total, total2: total2, totalUSD, total2USD })
                 }).catch(e => {
