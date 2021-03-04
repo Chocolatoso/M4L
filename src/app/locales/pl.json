@@ -523,7 +523,7 @@
             "reputation": "Reputacja"
         }
     },
-    "voting_jsx": {
+    "voting_jsx": { "payoutpending":"Pending Payout",
         "flagging_post_can_remove_rewards_the_flag_should_be_used_for_the_following":
             "Nadanie flagi może obniżać wynagrodzenia i spowodować mniejszą widoczność tej treści. Niektóre z powodów do oznaczania wpisów flagami",
         "disagreement_on_rewards": "Niezgoda co do wysokości wynagrodzenia",

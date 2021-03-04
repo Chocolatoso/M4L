@@ -532,7 +532,7 @@
             "reputation": "Reputation"
         }
     },
-    "voting_jsx": {
+    "voting_jsx": { "payoutpending":"Pending Payout",
         "flagging_post_can_remove_rewards_the_flag_should_be_used_for_the_following":
             "Голосование против уменьшает вознаграждение и снижает позицию в рейтинге.",
         "disagreement_on_rewards": "Несогласие с вознаграждением",

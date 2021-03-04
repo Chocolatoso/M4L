@@ -471,7 +471,7 @@
             "reputation": "Reputation"
         }
     },
-    "voting_jsx": {
+    "voting_jsx": { "payoutpending":"Pending Payout",
         "flagging_post_can_remove_rewards_the_flag_should_be_used_for_the_following":
             "举报帖子可撤销奖励且使其不可见。常见举报原因",
         "disagreement_on_rewards": "奖励不一致",

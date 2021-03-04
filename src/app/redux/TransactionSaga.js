@@ -343,6 +343,9 @@ function* broadcastPayload({
                             operations,
                             authType,
                             response => {
+                                if(response){
+                                    console.log("RESPUESTA KEYCHAIN", response);
+                                }
                                 if (!response.success) {
                                     reject(response.message);
                                 } else {

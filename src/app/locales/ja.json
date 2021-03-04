@@ -495,7 +495,7 @@
             "reputation": "Reputation"
         }
     },
-    "voting_jsx": {
+    "voting_jsx": { "payoutpending":"Pending Payout",
         "flagging_post_can_remove_rewards_the_flag_should_be_used_for_the_following":
             "フラグはこの投稿の報酬を減らし、見えにくくします。フラグを立てる一般的な理由は",
         "disagreement_on_rewards": "報酬に同意できない場合",

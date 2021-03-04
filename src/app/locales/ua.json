@@ -501,7 +501,7 @@
             "reputation": "Репутація"
         }
     },
-    "voting_jsx": {
+    "voting_jsx": { "payoutpending":"Pending Payout",
         "flagging_post_can_remove_rewards_the_flag_should_be_used_for_the_following":
             "Позначення допису може видалити нагороди та зробити цей матеріал менш помітним. Деякі поширені причини прапора",
         "disagreement_on_rewards": "Незгода на винагороду",
