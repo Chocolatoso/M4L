@@ -93,7 +93,7 @@ export default class SidebarTokenPrice extends React.Component {
                             <div className="SidebarToken__item">
                                 <div>Hive</div>
                                 {isFetching ? (<div> {tt('g.loading')} </div>) : (<div>
-                                    <span className="integer">${total[0]}</span>
+                                    <span className="integer">{total[0]}</span>
                                     <span className="decimal">{total[1]}</span>
                                 </div>)}
 
@@ -132,7 +132,7 @@ export default class SidebarTokenPrice extends React.Component {
                             <div className="SidebarToken__item">
                                 <div>Hive</div>
                                 {isFetching ? (<div> {tt('g.loading')} </div>) : (<div>
-                                    <span className="integer">${total2[0]}</span>
+                                    <span className="integer">{total2[0]}</span>
                                     <span className="decimal">{total2[1]}</span>
                                 </div>)}
                             </div>

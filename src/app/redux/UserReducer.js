@@ -374,6 +374,16 @@ export const hidePromotePost = payload => ({
     payload,
 });
 
+export const showReportPost = payload => ({
+    type: SHOW_REPORT_POST,
+    payload,
+});
+
+export const hideReportPost = payload => ({
+    type: HIDE_REPORT_POST,
+    payload,
+});
+
 export const setTransferDefaults = payload => ({
     type: SET_TRANSFER_DEFAULTS,
     payload,

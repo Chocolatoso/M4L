@@ -21,7 +21,7 @@ services:
                 parallelism: 1
                 delay: 5s
         environment:
-            VIRTUAL_HOST: mysterious-anchorage-75151.herokuapp.com
+            VIRTUAL_HOST: www.musicforlife.io
             VIRTUAL_PORT: 8080
             DISABLE_CLUSTERING: true
             SDC_CLIENT_STEEMD_URL: https://api.hive.blog

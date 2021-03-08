@@ -17,6 +17,7 @@ import { actions as fetchDataSagaActions } from 'app/redux/FetchDataSaga';
 import Userpic from 'app/components/elements/Userpic';
 import { HIVE_SIGNUP_URL, SIGNUP_URL } from 'shared/constants';
 import AppLogo from 'app/components/elements/AppLogo';
+import AppLogoClaro from 'app/components/elements/AppLogo/AppLogoClaro';
 import normalizeProfile from 'app/utils/NormalizeProfile';
 import Announcement from 'app/components/elements/Announcement';
 import GptAd from 'app/components/elements/GptAd';
@@ -341,11 +342,12 @@ class Header extends React.Component {
                     </div>
 
                     <nav className="row Header__nav">
-                        <div className="small-5 large-4 columns Header__logotype">
-                            {/*LOGO*/}
-                            <Link to={logo_link}>
+                        <div class="small-5 large-4 columns Header__logotype">
+                            {nightmodeEnabled ? <Link to={logo_link}>
+                                <AppLogoClaro />
+                            </Link> : <Link to={logo_link}>
                                 <AppLogo />
-                            </Link>
+                            </Link>}
                         </div>
 
                         <div className="large-4 columns show-for-large large-centered Header__sort">
@@ -404,7 +406,7 @@ class Header extends React.Component {
                                 </DropdownMenu>
                             )}
                             {/*HAMBURGER*/}
-                           
+
                         </div>
                     </nav>
                 </header>

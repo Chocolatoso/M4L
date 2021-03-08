@@ -9,6 +9,7 @@ import shouldComponentUpdate from 'app/utils/shouldComponentUpdate';
 import QrReader from 'app/components/elements/QrReader';
 import CheckLoginOwner from 'app/components/elements/CheckLoginOwner';
 import PromotePost from 'app/components/modules/PromotePost';
+import ReportPost from 'app/components/modules/ReportPost';
 import ExplorePost from 'app/components/modules/ExplorePost';
 import CommunitySubscriberList from './CommunitySubscriberList';
 import NotificationsList from '../cards/NotificationsList';
@@ -55,6 +56,16 @@ class Dialogs extends React.Component {
                         <Reveal onHide={this['hide_' + k]} show>
                             <CloseButton onClick={this['hide_' + k]} />
                             <PromotePost
+                                onClose={this['hide_' + k]}
+                                {...v.get('params').toJS()}
+                            />
+                        </Reveal>
+                    </span>
+                ) : k === 'reportPost' ? (
+                    <span key={`dialog-${k}`}>
+                        <Reveal onHide={this['hide_' + k]} show>
+                            <CloseButton onClick={this['hide_' + k]} />
+                            <ReportPost
                                 onClose={this['hide_' + k]}
                                 {...v.get('params').toJS()}
                             />

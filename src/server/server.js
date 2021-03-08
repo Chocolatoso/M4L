@@ -170,11 +170,13 @@ app.use(requestTime(statsLoggerClient));
 app.keys = [config.get('session_key')];
 
 const crypto_key = config.get('server_session_secret');
+
 session(app, {
     maxAge: 1000 * 3600 * 24 * 60,
     crypto_key,
     key: config.get('session_cookie_key'),
 });
+
 csrf(app);
 
 koaLocale(app);

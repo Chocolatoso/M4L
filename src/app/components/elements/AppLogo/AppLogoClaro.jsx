@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgImage from 'app/components/elements/SvgImage';
 
-class AppLogo extends React.Component {
+class AppLogoClaro extends React.Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
         width: PropTypes.string.isRequired,
@@ -15,12 +15,11 @@ class AppLogo extends React.Component {
         return <SvgImage name={name} width={width} height={height} />;
     }
 }
-
 import { connect } from 'react-redux';
 
 export default connect((state, ownProps) => {
     const hostConfig = state.app.get('hostConfig', Map()).toJS();
-    let name = hostConfig['APP_ICON'];
+    let name = hostConfig['APP_ICON_CLARO'];
     let width = hostConfig['APP_ICON_WIDTH'];
     let height = hostConfig['APP_ICON_HEIGHT'];
     if (ownProps.width) {
@@ -34,7 +33,4 @@ export default connect((state, ownProps) => {
         width,
         height,
     };
-})(AppLogo);
-
-
-
+})(AppLogoClaro);

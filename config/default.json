@@ -1,6 +1,6 @@
 {
   "facebook_app_id": false,
-  "google_analytics_id": false,
+  "google_analytics_id": true,
   "gtag_measurement_id": false,
   "helmet": {
     "directives": {
@@ -33,9 +33,9 @@
     "site_key": false
   },
   "server_session_secret": "u7fRTn05t67sCWiCX/IokRWGwfysMXgjCDlce3kxALA=",
-  "session_cookie_key": "hive-dev",
+  "session_cookie_key": "mfl-prod",
   "session_key": "haRYmEDmAndOgRempfLetIVI",
-  "site_domain": "mysterious-anchorage-75151.herokuapp.com",
+  "site_domain": "www.musicforlife.io",
   "upload_image": "https://steemitimages.com",
   "hive_upload_image": "https://images.hive.blog",
   "steemd_connection_client": "https://api.steemit.com",
@@ -52,9 +52,9 @@
   "pinned_posts_url": false,
   "wallet_url": "https://wallet.hive.blog",
   "gpt_banned_tags": ["nsfw"],
-  "google_ad_enabled": null,
+  "google_ad_enabled": true,
   "google_ad_test": null,
-  "google_ad_client": null,
+  "google_ad_client": "ca-pub-9696019385031435",
   "google_ad_slots": {
     "market_1": {
       "slot_id": "0"

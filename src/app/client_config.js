@@ -3,10 +3,11 @@ import { fromJSOrdered } from './utils/immutable';
 const VIBES = {
     APP_NAME: 'MusicForLife',
     APP_ICON: 'musicforlife',
+    APP_ICON_CLARO: 'musicforlifec',
     APP_ICON_WIDTH: '240px',
     APP_ICON_HEIGHT: '40px',
-    APP_URL: 'https://mysterious-anchorage-75151.herokuapp.com/',
-    APP_DOMAIN: 'mysterious-anchorage-75151.herokuapp.com',
+    APP_URL: 'https://www.musicforlife.io/',
+    APP_DOMAIN: 'www.musicforlife.io',
     LIQUID_TOKEN: 'Vibes',
     LIQUID_TOKEN_UPPERCASE: 'VIBES',
     APP_MAX_TAG: 10,
@@ -30,7 +31,7 @@ const VIBES = {
     COMMENT_FOOTER: '',
     SCOT_TAG_FIRST: false,
     PINNED_POSTS_URL: '',
-    SDC_GTAG_MEASUREMENT_ID: 'G-8SB0V2MDLS',
+    SDC_GTAG_MEASUREMENT_ID: 'G-NKTC91T19W',
     DISABLE_STEEM: true,
     PREFER_HIVE: true,
     HIVE_ENGINE: true,
@@ -43,7 +44,8 @@ const VIBES = {
 export const CONFIG_MAP = {
     // testing heroku/local options
     'localhost:8080': VIBES,
-    'mysterious-anchorage-75151.herokuapp.com': VIBES
+    'www.musicforlife.io': VIBES,
+    'musicforlife.io': VIBES
 };
 
 // FIXME figure out best way to do this on both client and server from env

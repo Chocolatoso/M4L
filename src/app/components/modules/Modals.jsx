@@ -48,6 +48,7 @@ class Modals extends React.Component {
         hideTransfer: PropTypes.func.isRequired,
         hidePowerdown: PropTypes.func.isRequired,
         hidePromotePost: PropTypes.func.isRequired,
+        hideReportPost: PropTypes.func.isRequired,
         hideBandwidthError: PropTypes.func.isRequired,
         hidePostAdvancedSettings: PropTypes.func.isRequired,
         notifications: PropTypes.object,
@@ -84,6 +85,7 @@ class Modals extends React.Component {
             notifications,
             removeNotification,
             hidePromotePost,
+            hideRemotePost,
             show_promote_post_modal,
             hideBandwidthError,
             hidePostAdvancedSettings,
@@ -262,6 +264,10 @@ export default connect(
         hidePromotePost: e => {
             if (e) e.preventDefault();
             dispatch(userActions.hidePromotePost());
+        },
+        hideReportPost: e => {
+            if (e) e.preventDefault();
+            dispatch(userActions.hideReportPost());
         },
         hideBandwidthError: e => {
             if (e) e.preventDefault();

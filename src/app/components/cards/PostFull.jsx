@@ -90,8 +90,10 @@ class PostFull extends React.Component {
         hostConfig: PropTypes.object,
         deletePost: PropTypes.func.isRequired,
         showPromotePost: PropTypes.func.isRequired,
+        showReportPost: PropTypes.func.isRequired,
         showExplorePost: PropTypes.func.isRequired,
         togglePinnedPost: PropTypes.func.isRequired,
+        
     };
 
     constructor(props) {
@@ -191,13 +193,13 @@ class PostFull extends React.Component {
             'http://twitter.com/share?' + q,
             'Share',
             'top=' +
-                winTop +
-                ',left=' +
-                winLeft +
-                ',toolbar=0,status=0,width=' +
-                winWidth +
-                ',height=' +
-                winHeight
+            winTop +
+            ',left=' +
+            winLeft +
+            ',toolbar=0,status=0,width=' +
+            winWidth +
+            ',height=' +
+            winHeight
         );
     }
 
@@ -232,13 +234,13 @@ class PostFull extends React.Component {
             'https://www.linkedin.com/shareArticle?' + q,
             'Share',
             'top=' +
-                winTop +
-                ',left=' +
-                winLeft +
-                ',toolbar=0,status=0,width=' +
-                winWidth +
-                ',height=' +
-                winHeight
+            winTop +
+            ',left=' +
+            winLeft +
+            ',toolbar=0,status=0,width=' +
+            winWidth +
+            ',height=' +
+            winHeight
         );
     }
 
@@ -249,6 +251,15 @@ class PostFull extends React.Component {
         const permlink = post.get('permlink');
         const hive = post.get('hive');
         this.props.showPromotePost(author, permlink, hive);
+    };
+
+    showReportPost = () => {
+        const { post } = this.props;
+        if (!post) return;
+        const author = post.get('author');
+        const permlink = post.get('permlink');
+        const hive = post.get('hive');
+        this.props.showReportPost(author, permlink, hive);
     };
 
     showExplorePost = () => {
@@ -339,9 +350,8 @@ class PostFull extends React.Component {
                         <UserNames names={[author]} />{' '}
                         {tt('postsummary_jsx.crossposted')}{' '}
                         <Link
-                            to={`/${crossPostCategory}/@${crossPostAuthor}/${
-                                crossPostPermlink
-                            }`}
+                            to={`/${crossPostCategory}/@${crossPostAuthor}/${crossPostPermlink
+                                }`}
                         >
                             this post
                         </Link>{' '}
@@ -638,7 +648,7 @@ class PostFull extends React.Component {
                                 )}
                                 {canTribeMute && (
                                     <a onClick={onTribeMute}>
-                                        Tribe-{ post.get('muted') ? 'Unmute' : 'Mute' }
+                                        Tribe-{ post.get('muted') ? 'Unmute' : 'Mute'}
                                     </a>
                                 )}
                             </span>
@@ -664,14 +674,15 @@ class PostFull extends React.Component {
                             >
                                 <Icon name="link" className="chain-right" />
                             </button>
+                          
+
                         </div>
                         {crossPostedBy && (
                             <div className="PostFull__crosspost-footer columns large-12">
                                 <Link
                                     className="button"
-                                    to={`/${crossPostCategory}/@${
-                                        crossPostAuthor
-                                    }/${crossPostPermlink}`}
+                                    to={`/${crossPostCategory}/@${crossPostAuthor
+                                        }/${crossPostPermlink}`}
                                 >
                                     Browse to the original post by @{
                                         crossPostAuthor
@@ -749,6 +760,14 @@ export default connect(
             dispatch(
                 globalActions.showDialog({
                     name: 'promotePost',
+                    params: { author, permlink, hive },
+                })
+            );
+        },
+        showReportPost: (author, permlink, hive) => {
+            dispatch(
+                globalActions.showDialog({
+                    name: 'reportPost',
                     params: { author, permlink, hive },
                 })
             );
