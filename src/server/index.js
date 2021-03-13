@@ -79,6 +79,7 @@ global.webpackIsomorphicTools.server(ROOT, () => {
             randomize: true,
         },
         useAppbaseApi: !!config.steemd_use_appbase,
+        alternative_api_endpoints: alternativeApiEndpoints,
     });
 
     // const CliWalletClient = require('shared/api_client/CliWalletClient').default;

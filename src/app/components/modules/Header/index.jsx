@@ -342,7 +342,7 @@ class Header extends React.Component {
                     </div>
 
                     <nav className="row Header__nav">
-                        <div class="small-5 large-4 columns Header__logotype">
+                        <div className="small-5 large-4 columns Header__logotype">
                             {nightmodeEnabled ? <Link to={logo_link}>
                                 <AppLogoClaro />
                             </Link> : <Link to={logo_link}>

@@ -13,6 +13,7 @@ import WelcomePanel from 'app/components/elements/WelcomePanel';
 import tt from 'counterpart';
 import { VIEW_MODE_WHISTLE } from 'shared/constants';
 
+
 const ChatWrapper = process.env.BROWSER && require('app/components/modules/chat/ChatWrapper').default;
 
 class App extends React.Component {

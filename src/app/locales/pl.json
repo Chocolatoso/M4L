@@ -1,6 +1,6 @@
 {
     "g": {
-        "administrator": "admin",
+        "administrator": "admin","current_rewards": "Your current rewards",
         "administrators": "administratorzy",
         "age": "wiek",
         "amount": "Ilość",
@@ -956,7 +956,7 @@
             "Nastąpi następne zaplanowane zmniejszenie mocy",
         "transfers_are_temporary_disabled": "Transfery tymczasowo wyłączone.",
         "history": "HISTORIA",
-        "redeem_rewards": "Odbierz nagrody (transfer do salda)",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "Kup HIVE lub HIVE POWER"
     },
     "powerdown_jsx": {

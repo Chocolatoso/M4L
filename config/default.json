@@ -4,9 +4,9 @@
   "gtag_measurement_id": false,
   "helmet": {
     "directives": {
-      "childSrc": "'self' 3speak.online emb.d.tube player.twitch.tv www.youtube.com staticxx.facebook.com w.soundcloud.com player.vimeo.com",
-      "connectSrc": "wss://ws.beechat.hive-engine.com https://beechat.hive-engine.com https://accounts.hive-engine.com https://history.steem-engine.net https://servedby.revive-adserver.net https://anyx.io https://steemd.minnowsupportproject.org https://cdn.snax.one https://api.hive-engine.com https://api.steem-engine.net https://scot-api.hive-engine.com https://scot-api.steem-engine.net https://steemitimages.com https://images.hive.blog securepubads.g.doubleclick.net 'self' steemit.com https://api.steemit.com https://api.hive.blog api.blocktrades.us https://hivesigner.com https://pagead2.googlesyndication.com http://adservice.google.com https://www.google-analytics.com https://api.openhive.network https://api.coingecko.com",
-      "defaultSrc": "tpc.googlesyndication.com 'self' img.3speakcontent.online emb.d.tube www.youtube.com staticxx.facebook.com player.vimeo.com *.streamrail.com",
+      "childSrc": "'self' 3speak.online emb.d.tube player.twitch.tv www.youtube.com staticxx.facebook.com w.soundcloud.com player.vimeo.com https://code.jquery.com/jquery-3.6.0.min.js",
+      "connectSrc": "wss://ws.beechat.hive-engine.com https://beechat.hive-engine.com https://accounts.hive-engine.com https://history.steem-engine.net https://servedby.revive-adserver.net https://anyx.io https://steemd.minnowsupportproject.org https://cdn.snax.one https://api.hive-engine.com https://api.steem-engine.net https://scot-api.hive-engine.com https://scot-api.steem-engine.net https://steemitimages.com https://images.hive.blog securepubads.g.doubleclick.net 'self' steemit.com https://api.steemit.com https://api.hive.blog api.blocktrades.us https://hivesigner.com https://pagead2.googlesyndication.com http://adservice.google.com https://www.google-analytics.com https://api.openhive.network https://api.coingecko.com https://anyx.io https://hived.hive-engine.com https://api.followbtcnews.com https://rpc.esteem.app https://api.openhive.network https://api.pharesim.me https://hive.roelandp.nl https://hived.privex.io https://techcoderx.com https://hive.3speak.online https://rpc.ausbit.dev https://api.hivekings.com https://code.jquery.com/jquery-3.6.0.min.js",
+      "defaultSrc": "tpc.googlesyndication.com 'self' img.3speakcontent.online emb.d.tube www.youtube.com staticxx.facebook.com player.vimeo.com *.streamrail.com https://code.jquery.com/jquery-3.6.0.min.js https://www.risingstargame.com/audio/radio/2.%20The%20Beautiful%20Ones.mp3",
       "fontSrc": "data: fonts.gstatic.com",
       "frameAncestors": "'none'",
       "frameSrc": "'self' googleads.g.doubleclick.net https:",
@@ -44,7 +44,7 @@
   "hive_connection_server": "https://api.hive.blog",
   "steemd_use_appbase": false,
   "chain_id": "0000000000000000000000000000000000000000000000000000000000000000",
-  "alternative_api_endpoints": "https://api.openhive.network https://api.hive.blog",
+  "alternative_api_endpoints": "https://api.openhive.network https://api.hive.blog https://anyx.io https://hived.hive-engine.com https://api.followbtcnews.com https://rpc.esteem.app https://api.openhive.network https://api.pharesim.me https://hive.roelandp.nl https://hived.privex.io https://techcoderx.com https://hive.3speak.online https://rpc.ausbit.dev https://api.hivekings.com",
   "failover_threshold": 3,
   "address_prefix": "STM",
   "conveyor_posting_wif": false,

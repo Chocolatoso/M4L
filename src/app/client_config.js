@@ -6,7 +6,7 @@ const VIBES = {
     APP_ICON_CLARO: 'musicforlifec',
     APP_ICON_WIDTH: '240px',
     APP_ICON_HEIGHT: '40px',
-    APP_URL: 'https://www.musicforlife.io/',
+    APP_URL: 'https://www.musicforlife.io',
     APP_DOMAIN: 'www.musicforlife.io',
     LIQUID_TOKEN: 'Vibes',
     LIQUID_TOKEN_UPPERCASE: 'VIBES',

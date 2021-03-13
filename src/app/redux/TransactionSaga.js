@@ -328,13 +328,12 @@ function* broadcastPayload({
             } else {
                 if (isLoggedInWithKeychain()) {
                     const authType = needsActiveAuth ? 'active' : 'posting';
-                    const keychain = useHive
-                        ? window.hive_keychain
-                        : window.steem_keychain;
+                    const keychain =  window.hive_keychain;
+                        
                     if (!keychain) {
                         reject(
                             `${
-                                useHive ? 'Hive' : 'Steem'
+                             'Hive' 
                             } keychain not available for operation. Please install or use private key.`
                         );
                     } else {

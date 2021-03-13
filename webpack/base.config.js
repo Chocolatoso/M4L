@@ -12,16 +12,16 @@ const webpack_isomorphic_tools_plugin =
 const devMode = process.env.NODE_ENV !== 'production';
 
 const plugins = [
-        new BundleAnalyzerPlugin({
-            analyzerMode: 'disabled',
-            generateStatsFile: true,
-            statsOptions: { source: false }
-        }),
-        function () {
-            this.plugin('done', writeStats);
-        },
-        webpack_isomorphic_tools_plugin,
-    ];
+    new BundleAnalyzerPlugin({
+        analyzerMode: 'disabled',
+        generateStatsFile: true,
+        statsOptions: { source: false }
+    }),
+    function () {
+        this.plugin('done', writeStats);
+    },
+    webpack_isomorphic_tools_plugin,
+];
 if (!devMode) {
     plugins.push(new MiniCssExtractPlugin({
         filename: devMode ? '[name].css' : '[name].[contenthash].css',
@@ -105,8 +105,18 @@ module.exports = {
                     },
                 ],
             },
-            {test: /\.js$|\.jsx$/, exclude: [/node_modules/, /\*\/app\/assets\/static\/\*\.js/], use: 'babel-loader'},
-            {test: /\.svg$/, use: 'svg-inline-loader'},
+            {
+                test: /\.js$|\.jsx$/,
+                exclude: [
+                    /node_modules/,
+                    /src\/app\/assets\/static\/\*\.js/,
+                    /src\/app\/assets\/js\/\*\.js/,
+                    path.resolve(__dirname, '../src/app/assets/js'),
+                    path.resolve(__dirname, '../src/app/assets/js/*') ]
+                ,
+                use: 'babel-loader'
+            },
+            { test: /\.svg$/, use: 'svg-inline-loader' },
             {
                 test: require.resolve("blueimp-file-upload"),
                 use: "imports?define=>false"
@@ -130,7 +140,8 @@ module.exports = {
                     },
                 ],
             }
-        ]
+        ],
+        noParse: [path.resolve(__dirname, '../src/app/assets/js/mCustomScrollbar.js')]
     },
     plugins,
     resolve: {
@@ -145,5 +156,6 @@ module.exports = {
         ]
     },
     externals: {
+        jquery: 'jQuery',
     }
 };

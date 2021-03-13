@@ -1,6 +1,6 @@
 {
     "g": {
-        "administrator": "admin",
+        "administrator": "admin","current_rewards": "Your current rewards",
         "administrators": "admins",
         "age": "возраст",
         "amount": "Количество",
@@ -823,7 +823,7 @@
         "next_power_down_is_scheduled_to_happen": "Следующее понижение силы голоса будет",
         "transfers_are_temporary_disabled": "Переводы временно преостановлены.",
         "history": "ИСТОРИЯ",
-        "redeem_rewards": "Получить вознаграждение",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "Купить HIVE или HIVE POWER"
     },
     "powerdown_jsx": {

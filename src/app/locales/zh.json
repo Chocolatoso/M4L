@@ -1,6 +1,6 @@
 {
     "g": {
-        "administrator": "admin",
+        "administrator": "admin","current_rewards": "Your current rewards",
         "administrators": "admins",
         "age": "时间",
         "amount": "数量",
@@ -789,7 +789,7 @@
         "next_power_down_is_scheduled_to_happen": "下一次的Power Down计划发生在",
         "transfers_are_temporary_disabled": "转移功能暂时被禁用。",
         "history": "历史",
-        "redeem_rewards": "赎回奖励(转移至余额)",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "购买HIVE或HIVE Power"
     },
     "powerdown_jsx": {

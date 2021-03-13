@@ -98,6 +98,14 @@ app.use(
 
 app.use(
     mount(
+        '/js',
+        staticCache(path.join(__dirname, '../app/assets/js'), cacheOpts)
+    )
+);
+
+
+app.use(
+    mount(
         '/javascripts',
         staticCache(
             path.join(__dirname, '../app/assets/javascripts'),

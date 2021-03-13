@@ -1,6 +1,7 @@
 {
     "g": {
         "administrator": "admin",
+        "current_rewards": "Your current rewards",
         "administrators": "admins",
         "age": "ancienneté",
         "amount": "Montant",
@@ -789,7 +790,7 @@
         "next_power_down_is_scheduled_to_happen": "Le prochain retrait d'influence, ou power down, est prévu dans ",
         "transfers_are_temporary_disabled": "Les transferts sont temporairement désactivés.",
         "history": "HISTORIQUE",
-        "redeem_rewards": "Réclamer les gains (transférer vers le solde)",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "Acheter du HIVE ou du HIVE POWER"
     },
     "powerdown_jsx": {

@@ -1,6 +1,6 @@
 {
     "g": {
-        "administrator": "admin",
+        "administrator": "admin","current_rewards": "Your current rewards",
         "administrators": "admins",
         "age": "вік",
         "amount": "Кількість",
@@ -786,7 +786,7 @@
         "next_power_down_is_scheduled_to_happen": "Наступне зменшення сили планується відбутися",
         "transfers_are_temporary_disabled": "Переведення тимчасово відключені.",
         "history": "ІСТОРІЯ",
-        "redeem_rewards": "Отримати нагороди (перевести на баланс)",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "Buy HIVE or HIVE POWER",
         "buy_steem_or_steem_power": "Купити STEEM або STEEM СИЛУ"
     },

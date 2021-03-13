@@ -1,6 +1,7 @@
 {
     "g": {
         "administrator": "admin",
+        "current_rewards": "Your current rewards",
         "administrators": "admins",
         "age": "시간",
         "amount": "양",
@@ -517,7 +518,7 @@
         "spend_your_DEBT_TOKEN_to_advertise_this_post": "%(DEBT_TOKEN)s를 지불하시면 '홍보글' 코너에 게시물이 올라갑니다.",
         "you_successfully_promoted_this_post": "홍보 하였습니다.",
         "this_post_was_hidden_due_to_low_ratings": "다운보팅에 의해 블라인드 처리 되었습니다.",
-        "reportPost" : "Report this post to curators for verification"
+        "reportPost": "Report this post to curators for verification"
     },
     "about_jsx": {
         "about_app": "About %(APP_NAME)s",
@@ -791,7 +792,7 @@
         "next_power_down_is_scheduled_to_happen": "다음 파워다운 예정:",
         "transfers_are_temporary_disabled": "현재 일시적인 이유로 송금이 불가능합니다.",
         "history": "거래 내역",
-        "redeem_rewards": "내 지갑으로 입금하기",
+        "redeem_rewards": "The rewards will be ready on next day",
         "buy_hive_or_hive_power": "HIVE, HIVE POWER 구입"
     },
     "powerdown_jsx": {
