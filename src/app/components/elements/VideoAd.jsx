@@ -6,13 +6,13 @@ class VideoAd extends Component {
         super(props);
         const { ad_identifier, enabled } = props;
 
-        this.ad_identifier = '';
-        this.enabled = false;
+    
 
         if (ad_identifier != '') {
             this.enabled = enabled;
             this.ad_identifier = ad_identifier;
         }
+        
     }
 
     componentDidMount() {
@@ -21,9 +21,7 @@ class VideoAd extends Component {
     }
 
     render() {
-        if (!this.ad_identifier || !this.enabled) {
-            return <div id="disabled_video_ad" style={{ display: 'none' }} />;
-        }
+        
 
         return <div id={this.ad_identifier} />;
     }

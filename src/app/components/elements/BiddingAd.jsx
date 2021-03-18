@@ -54,9 +54,8 @@ class BiddingAd extends Component {
         super(props);
         const { ad, enabled, type } = props;
 
-        this.ad = {};
         this.type = type;
-        this.enabled = false;
+        this.enabled = true;
 
         if (ad) {
             // console.info(

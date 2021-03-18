@@ -163,6 +163,7 @@ h1, h2, h3, h4, h5, h6 {
     @include themify($themes) {
         background-color: themed('moduleBackgroundColor');
         border: themed('border');
+        border-radius: 15px;
     }
   }
 }

@@ -37,6 +37,12 @@
     }
   }
 
+
+  @media screen and (max-width: 400px) {
+    padding-left: 0rem !important;
+    padding-right: 10rem;
+  }
+
   &-beta{
     position: absolute;
     top: 38px;

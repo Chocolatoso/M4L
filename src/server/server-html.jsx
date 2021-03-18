@@ -205,23 +205,13 @@ export default function ServerHTML({
                         async
                     />
                 ) : null}
+                
                 <script
+                    data-ad-client="ca-pub-9696019385031435"
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
                 />
 
-
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            console.info("CARGADO GOOLGE ADS");
-                      (adsbygoogle = window.adsbygoogle || []).push({
-                          google_ad_client: "ca-pub-9696019385031435",
-                          enable_page_level_ads: true
-                      });
-                  `,
-                    }}
-                />
 
                 {fomoId ? (
                     <script
@@ -246,6 +236,7 @@ export default function ServerHTML({
                       new Crate({
                               server: "${hostConfig['DISCORD_SERVER']}",
                               channel: "${hostConfig['DISCORD_CHANNEL']}",
+                              location: ['bottom', 'left']
                             });`,
                         }}
                     />
@@ -331,7 +322,7 @@ export default function ServerHTML({
                                     hidePlayerUntilMusicStart: false,
                                 };
                 
-                                player = $("#hap-wrapper").hap(settings);
+                              
                 
                                 //we ready baby
                             });

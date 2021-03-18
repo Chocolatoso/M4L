@@ -9,6 +9,7 @@ import LoadingIndicator from 'app/components/elements/LoadingIndicator';
 import GptAd from 'app/components/elements/GptAd';
 import ReviveAd from 'app/components/elements/ReviveAd';
 import VideoAd from 'app/components/elements/VideoAd';
+import GoogleAd from 'app/components/elements/GoogleAd';
 import shouldComponentUpdate from 'app/utils/shouldComponentUpdate';
 
 function topPosition(domElt) {
@@ -135,14 +136,15 @@ class PostsList extends React.Component {
                 const summary = [];
                 summary.push(<li key={i}>{ps}</li>);
 
-                const every = this.props.adSlots.in_feed_1.every;
-                if (this.props.shouldSeeAds && i >= every && i % every === 0) {
+                const every = 3;
+                if (i >= every && i % every === 0) {
                     summary.push(
                         <div key={`ad-id-${i}`}>
                             <div className="articles__content-block--ad">
-                                <ReviveAd
-                                    adKey="feed_small"
-                                    id={`feed_small_${Math.floor(i / every)}`}
+                                <GoogleAd
+                                    slot="8872331662"
+                                    format="fluid"
+                                    layoutKey="-gj-2e-24-ec+1hw"
                                 />
                             </div>
                         </div>

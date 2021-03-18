@@ -53,20 +53,20 @@
   "wallet_url": "https://wallet.hive.blog",
   "gpt_banned_tags": ["nsfw"],
   "google_ad_enabled": true,
-  "google_ad_test": null,
+  "google_ad_test": false,
   "google_ad_client": "ca-pub-9696019385031435",
   "google_ad_slots": {
     "market_1": {
-      "slot_id": "0"
+      "slot_id": "3167"
     },
     "in_feed_1": {
-      "slot_id": "0",
+      "slot_id": "3169",
       "layout_key": "-fb+5w+4e-db+86",
       "every": 15
     }
   },
-  "video_ads_enabled": null,
-  "gpt_enabled": null,
+  "video_ads_enabled": true,
+  "gpt_enabled": true,
   "gpt_basic_slots": {
     "bottom-of-post": {
       "path": "/21784675435/steemit_bottom-of-post",

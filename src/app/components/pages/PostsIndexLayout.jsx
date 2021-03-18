@@ -14,6 +14,8 @@ import CommunityPaneMobile from 'app/components/elements/CommunityPaneMobile';
 import ReviveAd from 'app/components/elements/ReviveAd';
 import SidebarToken from 'app/components/elements/SidebarToken';
 import SidebarTokenPrice from 'app/components/elements/SidebarTokenPrice';
+import GoogleAd from 'app/components/elements/GoogleAd';
+
 
 class PostsIndexLayout extends React.Component {
     static propTypes = {
@@ -95,7 +97,7 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
-                                 <SidebarTokenPrice
+                                <SidebarTokenPrice
                                 />
                             </div>
                         )}
@@ -125,7 +127,7 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
-                                 <SidebarTokenPrice
+                                <SidebarTokenPrice
                                 />
                             </div>
                         )}
@@ -162,9 +164,15 @@ class PostsIndexLayout extends React.Component {
                         )}
                     {reviveEnabled && mqLarge ? (
                         <div className="sidebar-ad">
-                            <ReviveAd adKey="sidebar_right" />
+                            <ReviveAd slot="2768289442" fullWidthResponsive="true" />
                         </div>
                     ) : null}
+
+
+                    <div className="sidebar-ad">
+                        <ReviveAd adKey="sidebar_right" />
+                    </div>
+
                     {scotTokenSymbol === 'INFOWARS' && (
                         <iframe
                             width="320"
@@ -199,6 +207,11 @@ class PostsIndexLayout extends React.Component {
                             <ReviveAd adKey="sidebar_left" />
                         </div>
                     ) : null}
+
+                    <div className="sidebar-ad">
+                        <ReviveAd slot="3273069364" fullWidthResponsive="true" />
+                    </div>
+
                 </aside>
             </div>
         );

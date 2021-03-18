@@ -7,6 +7,8 @@ class GoogleAd extends React.Component {
             return;
         }
 
+        console.log("mostrando ads")
+
         (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
 
@@ -15,6 +17,7 @@ class GoogleAd extends React.Component {
             return null;
         }
 
+        
         const style = Object.assign(
             {
                 display: 'inline-block',

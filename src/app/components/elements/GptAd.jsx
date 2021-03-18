@@ -6,9 +6,7 @@ class GptAd extends Component {
         super(props);
         const { ad_identifier, enabled, type, tags, bannedTags } = props;
 
-        this.ad_identifier = '';
         this.type = type;
-        this.enabled = false;
         this.tags = tags;
         this.bannedTags = bannedTags;
 
@@ -48,9 +46,7 @@ class GptAd extends Component {
     }
 
     render() {
-        if (!this.ad_identifier || !this.enabled) {
-            return <div id="disabled_ad" style={{ display: 'none' }} />;
-        }
+        
 
         return (
             <div

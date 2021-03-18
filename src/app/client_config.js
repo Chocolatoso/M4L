@@ -12,8 +12,8 @@ const VIBES = {
     LIQUID_TOKEN_UPPERCASE: 'VIBES',
     APP_MAX_TAG: 10,
     SCOT_TAG: 'musicforlife',
-	TAG_LIST: fromJSOrdered([
-		'musicforlife',
+    TAG_LIST: fromJSOrdered([
+        'musicforlife',
     ]),
     INTERLEAVE_PROMOTED: true,
     PROMOTED_POST_ACCOUNT: 'null',
@@ -27,17 +27,24 @@ const VIBES = {
     REVIVE_ADS: {},
     ALLOW_MASTER_PW: false,
     // Footer to attach to posts. ${POST_URL} is a macro that can be used, will be expanded to the URL of the post.
-    POST_FOOTER: '',
-    COMMENT_FOOTER: '',
+    POST_FOOTER:
+        '\n\n---\n\n<center><sub>Posted via [MusicForLife.io](${POST_URL})</sub></center>',
+    COMMENT_FOOTER:
+        '\n\n---\n\n<center><sub>Posted via [MusicForLife.io](${POST_URL})</sub></center>',
     SCOT_TAG_FIRST: false,
     PINNED_POSTS_URL: '',
     SDC_GTAG_MEASUREMENT_ID: 'G-NKTC91T19W',
+    SHOW_AUTHOR_RECENT_POSTS: true,
     DISABLE_STEEM: true,
     PREFER_HIVE: true,
     HIVE_ENGINE: true,
     CHAT_CONVERSATIONS: null,
     APPEND_TRENDING_TAGS_COUNT: 10,
     COMMUNITY_CATEGORY: 'hive-175836',
+    GOOGLE_AD_ENABLED: true,
+    DISCORD_SERVER: '780922943143673889',
+    DISCORD_CHANNEL: '780928321402699776', 
+    GOOGLE_AD_CLIENT: 'ca-pub-9696019385031435',
 };
 
 
