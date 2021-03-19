@@ -136,20 +136,7 @@ class PostsList extends React.Component {
                 const summary = [];
                 summary.push(<li key={i}>{ps}</li>);
 
-                const every = 3;
-                if (i >= every && i % every === 0) {
-                    summary.push(
-                        <div key={`ad-id-${i}`}>
-                            <div className="articles__content-block--ad">
-                                <GoogleAd
-                                    slot="8872331662"
-                                    format="fluid"
-                                    layoutKey="-gj-2e-24-ec+1hw"
-                                />
-                            </div>
-                        </div>
-                    );
-                }
+                
                 return summary;
             });
 

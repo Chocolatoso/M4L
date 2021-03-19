@@ -14,6 +14,8 @@ import GptAd from 'app/components/elements/GptAd';
 import ReviveAd from 'app/components/elements/ReviveAd';
 import { isLoggedIn } from 'app/utils/UserUtil';
 import LoadingIndicator from 'app/components/elements/LoadingIndicator';
+import GoogleAd from 'app/components/elements/GoogleAd';
+
 
 function isEmptyPost(post) {
     // check if the post doesn't exist
@@ -233,11 +235,7 @@ class Post extends React.Component {
                     )}
                 {this.props.gptEnabled && commentCount >= 5 ? (
                     <div className="Post_footer__ad">
-                        <GptAd
-                            tags={gptTags}
-                            type="Freestar"
-                            id="bsa-zone_1566494147292-7_123456"
-                        />
+                        
                     </div>
                 ) : null}
                 {this.props.reviveEnabled ? (
@@ -267,11 +265,7 @@ class Post extends React.Component {
                 </div>
                 {this.props.gptEnabled ? (
                     <div className="Post_footer__ad">
-                        <GptAd
-                            tags={gptTags}
-                            type="Freestar"
-                            id="bsa-zone_1566494371533-0_123456"
-                        />
+
                     </div>
                 ) : null}
             </div>

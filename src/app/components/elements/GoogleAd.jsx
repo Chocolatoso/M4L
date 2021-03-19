@@ -6,8 +6,7 @@ class GoogleAd extends React.Component {
         if (!this.props.shouldSeeAds) {
             return;
         }
-
-        console.log("mostrando ads")
+       
 
         (window.adsbygoogle = window.adsbygoogle || []).push({});
     }

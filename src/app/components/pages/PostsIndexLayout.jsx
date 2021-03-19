@@ -170,7 +170,7 @@ class PostsIndexLayout extends React.Component {
 
 
                     <div className="sidebar-ad">
-                        <ReviveAd adKey="sidebar_right" />
+                        <GoogleAd slot="2768289442" fullWidthResponsive="true" />
                     </div>
 
                     {scotTokenSymbol === 'INFOWARS' && (
@@ -207,10 +207,6 @@ class PostsIndexLayout extends React.Component {
                             <ReviveAd adKey="sidebar_left" />
                         </div>
                     ) : null}
-
-                    <div className="sidebar-ad">
-                        <ReviveAd slot="3273069364" fullWidthResponsive="true" />
-                    </div>
 
                 </aside>
             </div>
