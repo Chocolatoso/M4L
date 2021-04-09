@@ -100,9 +100,9 @@
   &__module {
     padding: 1.5em 2em;
     @include themify($themes) {
-      border-radius: themed('roundedCorners');
-      background-color: themed('moduleBackgroundColor');
-      border: themed('border');
+      border-radius: 15px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px #00000029
       
     }
     margin-bottom: 1em;
@@ -136,6 +136,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    text-align: center;
   }
 
   .li {
@@ -210,7 +211,7 @@
   box-shadow: none;
 
   h2 {
-    font-family: sans-serif;
+    font-family: "Source Sans Pro";
   }
   @include MQ(M) {
     padding: 0em 1em;
@@ -262,7 +263,7 @@
     border: transparent;
     padding-bottom: 0;
     @include themify($themes) {
-      background-color: themed('moduleBackgroundColor');
+      //background-color: themed('moduleBackgroundColor');
     }
     @include MQ(M) {
       margin: 0 0 40px;
@@ -768,6 +769,7 @@ a#changeLayout:focus {
         border: transparent;
         padding: 4px;
         padding-top: 3px;
+        justify-content: flex-end
         // @include themify($themes) {
         //     border-bottom: themed('borderLight');
         //   }
@@ -785,7 +787,7 @@ a#changeLayout:focus {
       }
       &__footer {
         @include themify($themes) {
-          border-top: themed('borderLight');
+         // border-top: themed('borderLight');
           margin-top: 0.25em;
         }
       }
@@ -893,4 +895,10 @@ a#changeLayout:focus {
 
 .tag-feed-header .Markdown h2 {
     margin: 0.5rem 0 0.3rem;
+}
+
+
+.c-sidebar .c-sidebar--left > .c-sidebar__module {
+  background-color: unset;
+  border: none;
 }

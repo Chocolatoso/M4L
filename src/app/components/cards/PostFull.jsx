@@ -44,7 +44,7 @@ function TimeAuthorCategory({ post, community, hive }) {
     );
 }
 
-function TimeAuthorCategoryLarge({ post, community, hive }) {
+function TimeAuthorCategoryLarge({ post, community, hive, time, words }) {
     const crossPostedBy = post.get('cross_posted_by');
     let author = post.get('author');
     let created = post.get('created');
@@ -57,22 +57,67 @@ function TimeAuthorCategoryLarge({ post, community, hive }) {
     }
 
     return (
-        <span className="PostFull__time_author_category_large vcard">
-            <Userpic account={author} hive={hive} />
-            <div className="right-side">
-                <Author
-                    post={post}
-                    showAffiliation
-                    resolveCrossPost
-                    hive={hive}
-                />
-                {tt('g.in')} <Tag post={post} community={community} />
-                {' • '}
-                <TimeAgoWrapper date={created} />{' '}
-                <ContentEditedWrapper
-                    createDate={created}
-                    updateDate={updated}
-                />
+        <span className="media PostFull__time_author_category_large vcard">
+            <div className="media-content">
+                <div className="is-flex has-right-children">
+                    <div className="is-flex">
+                        <Userpic account={author} hive={hive} />
+                        <div className="right-side">
+                            <Author
+                                post={post}
+                                showAffiliation
+                                resolveCrossPost
+                                hive={hive}
+                            />
+                            {'  '}
+                            <TimeAgoWrapper date={created} />{' '}
+                            <ContentEditedWrapper
+                                createDate={created}
+                                updateDate={updated}
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div
+                            className="mr-2"
+                            style={{
+                                background:
+                                    '#229AC4 0% 0% no-repeat padding-box',
+                                borderRadius: '6px',
+                                opacity: '1',
+                                color: 'white',
+                                padding: '3px',
+                                marginBottom: '5px',
+                                textAlign: 'center',
+                            }}
+                        >
+                            <span class="tag has-text-weight-semibold is-uppercase is-light">
+                                <small>{time} Min Read</small>
+                            </span>
+                        </div>
+                        <div
+                            className="mr-2"
+                            style={{
+                                background:
+                                    '#229AC4 0% 0% no-repeat padding-box',
+                                borderRadius: '6px',
+                                opacity: '1',
+                                color: 'white',
+                                padding: '3px',
+                                margin: 'auto',
+                                textAlign: 'center',
+                            }}
+                        >
+                            <span class="tag has-text-weight-semibold is-uppercase is-light">
+                                <small>{words} Words</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="is-right post-meta">
+                    {tt('g.in')} <Tag post={post} community={community} />
+                </div>
             </div>
         </span>
     );
@@ -93,7 +138,6 @@ class PostFull extends React.Component {
         showReportPost: PropTypes.func.isRequired,
         showExplorePost: PropTypes.func.isRequired,
         togglePinnedPost: PropTypes.func.isRequired,
-        
     };
 
     constructor(props) {
@@ -131,7 +175,7 @@ class PostFull extends React.Component {
                 post.get('author'),
                 post.get('permlink'),
                 !post.get('muted'),
-                post.get('hive'),
+                post.get('hive')
             );
         };
     }
@@ -193,13 +237,13 @@ class PostFull extends React.Component {
             'http://twitter.com/share?' + q,
             'Share',
             'top=' +
-            winTop +
-            ',left=' +
-            winLeft +
-            ',toolbar=0,status=0,width=' +
-            winWidth +
-            ',height=' +
-            winHeight
+                winTop +
+                ',left=' +
+                winLeft +
+                ',toolbar=0,status=0,width=' +
+                winWidth +
+                ',height=' +
+                winHeight
         );
     }
 
@@ -234,13 +278,13 @@ class PostFull extends React.Component {
             'https://www.linkedin.com/shareArticle?' + q,
             'Share',
             'top=' +
-            winTop +
-            ',left=' +
-            winLeft +
-            ',toolbar=0,status=0,width=' +
-            winWidth +
-            ',height=' +
-            winHeight
+                winTop +
+                ',left=' +
+                winLeft +
+                ',toolbar=0,status=0,width=' +
+                winWidth +
+                ',height=' +
+                winHeight
         );
     }
 
@@ -350,8 +394,9 @@ class PostFull extends React.Component {
                         <UserNames names={[author]} />{' '}
                         {tt('postsummary_jsx.crossposted')}{' '}
                         <Link
-                            to={`/${crossPostCategory}/@${crossPostAuthor}/${crossPostPermlink
-                                }`}
+                            to={`/${crossPostCategory}/@${crossPostAuthor}/${
+                                crossPostPermlink
+                            }`}
                         >
                             this post
                         </Link>{' '}
@@ -386,7 +431,8 @@ class PostFull extends React.Component {
 
         // TODO: get global loading state
         //loading = !bIllegalContentUser && !bDMCAStop && partial data loaded;
-        const bShowLoading = !post || post.get('body').length < post.get('body_length');
+        const bShowLoading =
+            !post || post.get('body').length < post.get('body_length');
 
         // hide images if user is on blacklist
         const hideImages = ImageUserBlockList.includes(author);
@@ -464,33 +510,20 @@ class PostFull extends React.Component {
                 </div>
             );
         }
+
+        const worldCount = ('' + replyParams.body).match(/\w+/g).length;
+        const timeTiRead = Math.ceil(worldCount / 250);
+
         const high_quality_post = post.get('payout') > 10.0;
         const full_power = post.get('percent_steem_dollars') === 0;
         const isReply = post.get('depth') > 0;
-
+        const canFlag =
+            username && community && Role.atLeast(viewer_role, 'guest');
         let post_header = (
-            <div>
+            <div className="newUiTittle">
                 {crossPostedBy}
-                <h1 className="entry-title">
-                    {content.title}
-                    {POSTED_VIA_NITROUS_ICON &&
-                        app_info &&
-                        app_info.startsWith(`${APP_NAME.toLowerCase()}/`) && (
-                            <span
-                                className="articles__icon-100"
-                                title={tt('g.written_from', {
-                                    app_name: APP_NAME,
-                                })}
-                            >
-                                <Icon name={POSTED_VIA_NITROUS_ICON} />
-                            </span>
-                        )}
-                    {full_power && (
-                        <span title={tt('g.powered_up_100')}>
-                            <Icon name={hive ? 'hive' : 'steempower'} />
-                        </span>
-                    )}
-                </h1>
+                <h1 className="entry-title">{content.title}</h1>
+                {canFlag && <FlagButton post={post} />}
             </div>
         );
 
@@ -505,6 +538,7 @@ class PostFull extends React.Component {
                         )}:
                     </div>
                     <h4>{post.get('title')}</h4>
+                    {canFlag && <FlagButton post={post} />}
                     <ul>
                         <li>
                             <Link to={rooturl}>
@@ -529,8 +563,7 @@ class PostFull extends React.Component {
         const canPin =
             post.get('depth') == 0 && Role.atLeast(viewer_role, 'mod');
         const canMute = username && Role.atLeast(viewer_role, 'mod');
-        const canFlag =
-            username && community && Role.atLeast(viewer_role, 'guest');
+
         const canReply = allowReply && post.get('depth') < 255;
         const canEdit = username === author && !showEdit;
         const canDelete = username === author && allowDelete(post);
@@ -563,7 +596,6 @@ class PostFull extends React.Component {
                     itemScope
                     itemType="http://schema.org/Blog"
                 >
-                    {canFlag && <FlagButton post={post} />}
                     {showEdit ? (
                         renderedEditor
                     ) : (
@@ -574,6 +606,8 @@ class PostFull extends React.Component {
                                     post={post}
                                     community={community}
                                     hive={hive}
+                                    time={timeTiRead}
+                                    words={worldCount}
                                 />
                             </div>
                             <div className="PostFull__body entry-content">
@@ -648,7 +682,9 @@ class PostFull extends React.Component {
                                 )}
                                 {canTribeMute && (
                                     <a onClick={onTribeMute}>
-                                        Tribe-{ post.get('muted') ? 'Unmute' : 'Mute'}
+                                        Tribe-{post.get('muted')
+                                            ? 'Unmute'
+                                            : 'Mute'}
                                     </a>
                                 )}
                             </span>
@@ -674,15 +710,14 @@ class PostFull extends React.Component {
                             >
                                 <Icon name="link" className="chain-right" />
                             </button>
-                          
-
                         </div>
                         {crossPostedBy && (
                             <div className="PostFull__crosspost-footer columns large-12">
                                 <Link
                                     className="button"
-                                    to={`/${crossPostCategory}/@${crossPostAuthor
-                                        }/${crossPostPermlink}`}
+                                    to={`/${crossPostCategory}/@${
+                                        crossPostAuthor
+                                    }/${crossPostPermlink}`}
                                 >
                                     Browse to the original post by @{
                                         crossPostAuthor
@@ -709,7 +744,11 @@ export default connect(
 
         const category = post.get('category');
         const community = state.global.getIn(['community', category]);
-        const tokenAccount = state.app.getIn(['scotConfig', 'config', 'token_account']);
+        const tokenAccount = state.app.getIn([
+            'scotConfig',
+            'config',
+            'token_account',
+        ]);
 
         return {
             hostConfig: state.app.get('hostConfig', Map()).toJS(),

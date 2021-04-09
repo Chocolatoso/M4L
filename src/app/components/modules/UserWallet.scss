@@ -20,13 +20,19 @@
 }
 
 .UserWallet__balance {
+
   padding-bottom: 1rem;
   padding-top: 1rem;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px;
+  opacity: 1;
+  margin-bottom: 10px;
 
   &.UserWallet__balance:nth-child(even) {
       @include themify($themes) {
-        background-color: themed('tableRowEvenBackgroundColor');
-        color: themed('textColorPrimary');
+      //  background-color: themed('tableRowEvenBackgroundColor');
+      //  color: themed('textColorPrimary');
       }
   }
   
@@ -49,6 +55,7 @@
       }
     }
   }
+
 }
 
 .UserWallet__buysp {  
@@ -66,8 +73,8 @@
 
   @include themify($themes) {
     border: themed('border');
-    background-color: themed('highlightBackgroundColor');
-    color: themed('textColorPrimary');
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    color: black;
   }
 
   .button {

@@ -1,7 +1,10 @@
 .post_advanced_settings {
     h4 {
         @media print, screen and (min-width: 40em) {
-            font-size: 1.250rem;
+           // font-size: 1.250rem;
+            letter-spacing: 0px;
+            color: #0C1429;
+            opacity: 1;
         }
     }
 }

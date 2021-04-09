@@ -4,9 +4,9 @@
   margin-bottom: 15px;
   overflow-y: auto;
   @include themify($themes) {
-    border-radius: themed('roundedCorners');
-    border: themed('border');
-    background-color: themed('moduleBackgroundColor');
+   // border-radius: themed('roundedCorners');
+   // border: themed('border');
+  //  background-color: themed('moduleBackgroundColor');
   }
   &.side-by-side {
     max-width: 100%;
@@ -96,6 +96,7 @@
   font-weight: bold;
   padding: 0.5rem;
   height: auto;
+  border-radius: 10px
 }
 
 .ReplyEditor__draft {
@@ -155,4 +156,25 @@
 
 .Dropdown__root___1B9ta {
   color: black!important;
+}
+
+
+.buttonReply {
+  text-align: center;
+  /* font: normal normal normal 21px/33px Source Sans Pro; */
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+  background: #229AC4 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.buttonReply[disabled] {
+    background-color: unset;
+    color: black;
+    border: 1px solid;
+    cursor: not-allowed;
 }

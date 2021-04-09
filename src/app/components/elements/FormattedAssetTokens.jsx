@@ -56,7 +56,7 @@ const FormattedAssetToken = ({
 
     return (
         <Tooltip
-            className={classNames('label', {
+            className={classNames('label newUiLabel', {
                 reward: isMyAccount && pendingToken,
             })}
             t={tooltip.join(', ')}

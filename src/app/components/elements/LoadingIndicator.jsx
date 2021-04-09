@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SvgImage from 'app/components/elements/SvgImage';
 
 class LoadingIndicator extends React.Component {
     static propTypes = {
@@ -41,6 +42,14 @@ class LoadingIndicator extends React.Component {
                             (inline ? ' inline' : '')
                         }
                     >
+                        <div>
+                            <SvgImage
+                                name="chevron-up-circle"
+                                width="32px"
+                                height="32px"
+                            />
+                        </div>
+
                         <div />
                     </div>
                 );
@@ -51,7 +60,13 @@ class LoadingIndicator extends React.Component {
                         style={style}
                         className={'LoadingIndicator circle circle-strong'}
                     >
-                        <div />
+                        <div>
+                            <SvgImage
+                                name="chevron-up-circle"
+                                width="32px"
+                                height="32px"
+                            />
+                        </div>
                     </div>
                 );
             default:

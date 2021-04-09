@@ -19,6 +19,10 @@ export function serverApiLogin(account, signatures, useHive) {
 }
 
 export function serverApiLogout() {
+    console.log(
+        'SERVER LOGOUT',
+        !process.env.BROWSER || window.$STM_ServerBusy
+    );
     if (!process.env.BROWSER || window.$STM_ServerBusy) return;
     const request = Object.assign({}, request_base, {
         body: JSON.stringify({ csrf: $STM_csrf }),

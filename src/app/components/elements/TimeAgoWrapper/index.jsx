@@ -19,7 +19,11 @@ class TimeAgoWrapper extends React.Component {
         )} ${this.props.intl.formatTime(dt)}`;
         return (
             <Tooltip t={date_time} className={className}>
-                <FormattedRelative {...this.props} value={date} />
+                <FormattedRelative
+                    className="timeTo"
+                    {...this.props}
+                    value={date}
+                />
             </Tooltip>
         );
     }

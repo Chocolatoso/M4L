@@ -169,12 +169,17 @@ export default function useGeneralApi(app) {
 
     router.post('/logout_account', koaBody, function*() {
         // if (rateLimitReq(this, this.req)) return; - logout maybe immediately followed with login_attempt event
+
         const params = this.request.body;
         const { csrf } = _parse(params);
+
+        console.log('login out ', !checkCSRF(this, csrf));
+
         if (!checkCSRF(this, csrf)) return;
         logRequest('logout_account', this);
         try {
-            this.session.a = null;
+            this.session.a = false;
+
             this.body = JSON.stringify({ status: 'ok' });
         } catch (error) {
             console.error(
@@ -319,7 +324,8 @@ export default function useGeneralApi(app) {
             method: this.request.method,
             headers: {
                 'Content-type': 'application/json',
-                Authorization: config.get('esteem_elastic_search_api_key'),
+                Authorization:
+                    'C8RSHNHLHT1QJ3UIYDTCBABTDYOKV1122QVKCMDYBGXPV1DAGAKUSBQPMXYY',
             },
             body: this.request.body,
             // NOTE: agentOptions purely for testing, localhost vs SSL.
@@ -330,7 +336,7 @@ export default function useGeneralApi(app) {
         if (!checkCSRF(this, csrf)) return;
         try {
             const searchResult = yield fetch(
-                'https://api.search.esteem.app/search',
+                'https://api.hivesearcher.com/search',
                 passThrough
             );
             const resultJson = yield searchResult.json();

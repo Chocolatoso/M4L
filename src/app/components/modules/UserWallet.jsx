@@ -27,11 +27,18 @@ import Icon from 'app/components/elements/Icon';
 import classNames from 'classnames';
 import FormattedAssetTokens from 'app/components/elements/FormattedAssetTokens';
 
+import {
+    formatDecimal,
+    parsePayoutAmount,
+} from 'app/utils/ParsersAndFormatters';
+
 class UserWallet extends React.Component {
     constructor() {
         super();
         this.state = {
             claimInProgress: false,
+            usd: 0,
+            isFetching: true,
         };
         this.onShowDepositSteem = e => {
             if (e && e.preventDefault) e.preventDefault();
@@ -69,6 +76,7 @@ class UserWallet extends React.Component {
             !profile.has('balance')
         ) {
             fetchWalletProfile(accountname);
+        } else {
         }
     }
 
@@ -81,6 +89,7 @@ class UserWallet extends React.Component {
                 !profile.has('balance')
             ) {
                 fetchWalletProfile(accountname);
+            } else {
             }
         }
     }
@@ -102,6 +111,7 @@ class UserWallet extends React.Component {
             .map(({ symbol }) => symbol);
         claimAllTokensRewards(profile, pendingTokenSymbols, useHive);
     };
+
     render() {
         const {
             onShowDepositSteem,
@@ -126,6 +136,13 @@ class UserWallet extends React.Component {
         ) {
             return null;
         }
+        const vibesHive = profile.has('vibesPrice')
+            ? profile.get('vibesPrice')
+            : 0;
+        const hiveToUsd = profile.has('hiveusdprice')
+            ? profile.get('hiveusdprice')
+            : 0;
+
         const allTokenBalances = profile.has('token_balances')
             ? profile.get('token_balances').toJS()
             : [];
@@ -152,14 +169,24 @@ class UserWallet extends React.Component {
         const allTokenStatus = profile.has('all_token_status')
             ? profile.get('all_token_status').toJS()
             : [];
+
         const balance = tokenBalances.balance;
+
         const delegatedStake = tokenBalances.delegationsOut || '0';
+
         const stakeBalance =
             parseFloat(tokenBalances.stake) + parseFloat(delegatedStake);
+
+        const usd =
+            (parseFloat(balance) + stakeBalance) * vibesHive * hiveToUsd
+                ? (parseFloat(balance) + stakeBalance) * vibesHive * hiveToUsd
+                : 0;
+
         const netDelegatedStake =
             parseFloat(delegatedStake) -
             parseFloat(tokenBalances.delegationsIn || '0');
         const pendingUnstakeBalance = tokenBalances.pendingUnstake;
+
         const tokenDelegations = profile.has('token_delegations')
             ? profile.get('token_delegations').toJS()
             : [];
@@ -286,11 +313,18 @@ class UserWallet extends React.Component {
                     <div className="columns small-12">
                         <div className="UserWallet__claimbox">
                             <span className="UserWallet__claimbox-text">
-                                {tt("g.current_rewards")}: {rewards_str}
+                                {tt('g.current_rewards')}:{' '}
+                                <strong
+                                    style={{
+                                        color: '#229AC4',
+                                        fontWeight: 'bold',
+                                    }}
+                                >
+                                    {rewards_str}
+                                </strong>
                             </span>
-                            
+
                             {tt('userwallet_jsx.redeem_rewards')}
-                            
                         </div>
                     </div>
                 </div>
@@ -393,7 +427,7 @@ class UserWallet extends React.Component {
                 </div>
                 <div className="UserWallet__balance row">
                     <div className="column small-12 medium-8">
-                        {scotTokenSymbol}
+                        <strong>{scotTokenSymbol}</strong>
                         <FormattedHTMLMessage
                             className="secondary"
                             id="tips_js.liquid_token"
@@ -416,9 +450,10 @@ class UserWallet extends React.Component {
                         )}
                     </div>
                 </div>
-                <div className="UserWallet__balance row zebra">
+
+                <div className="UserWallet__balance row">
                     <div className="column small-12 medium-8">
-                        {scotVestingToken}
+                        <strong> {scotVestingToken} </strong>
                         <FormattedHTMLMessage
                             className="secondary"
                             id="tips_js.influence_token"
@@ -479,11 +514,22 @@ class UserWallet extends React.Component {
                         </div>
                     </div>
                 )}
-                <hr />
+
+                <div className="UserWallet__balance row">
+                    <div className="column small-12 medium-8">
+                        <strong> USD </strong>
+                    </div>
+                    <div className="column small-12 medium-4">
+                        <a href="#">
+                            <span>{`${usd}`}</span>
+                        </a>
+                    </div>
+                </div>
+
                 {/* STEEM */}
                 <div className="UserWallet__balance row">
                     <div className="column small-12 medium-8">
-                        {native_token_str_upper}
+                        <strong> {native_token_str_upper} </strong>
                         <FormattedHTMLMessage
                             className="secondary"
                             id="tips_js.liquid_token"
@@ -511,9 +557,9 @@ class UserWallet extends React.Component {
                     </div>
                 </div>
                 {/* STEEM POWER */}
-                <div className="UserWallet__balance row zebra">
+                <div className="UserWallet__balance row">
                     <div className="column small-12 medium-8">
-                        {native_token_str_upper} POWER
+                        <strong> {native_token_str_upper} POWER </strong>
                         <FormattedHTMLMessage
                             className="secondary"
                             id="tips_js.influence_token"
@@ -563,7 +609,7 @@ class UserWallet extends React.Component {
                 {/* Steem Dollars */}
                 <div className="UserWallet__balance row">
                     <div className="column small-12 medium-8">
-                        {native_token_str_upper} DOLLARS
+                        <strong> {native_token_str_upper} DOLLARS </strong>
                         <div className="secondary">
                             {tt('userwallet_jsx.tradeable_tokens_transferred')}
                         </div>
@@ -581,7 +627,7 @@ class UserWallet extends React.Component {
                         )}
                     </div>
                 </div>
-                <hr />
+
                 {/* Engine Tokens */}
                 {otherTokenBalances && otherTokenBalances.length ? (
                     <div
@@ -590,7 +636,10 @@ class UserWallet extends React.Component {
                         })}
                     >
                         <div className="column small-12 medium-9">
-                            {useHive ? 'Hive' : 'Steem'} Engine Tokens
+                            <strong>
+                                {' '}
+                                {useHive ? 'Hive' : 'Steem'} Engine Tokens{' '}
+                            </strong>
                         </div>
                         {isMyAccount && (
                             <div className="column small-12 medium-3">
@@ -619,7 +668,7 @@ class UserWallet extends React.Component {
                 {parseFloat(snaxBalance) ? (
                     <div className="UserWallet__balance row">
                         <div className="column small-12 medium-8">
-                            {' SNAX Tokens'}
+                            <strong> {' SNAX Tokens'} </strong>
                             <FormattedHTMLMessage
                                 className="secondary"
                                 id="tips_js.snax_token"
@@ -644,9 +693,7 @@ class UserWallet extends React.Component {
                     </div>
                 )}
                 <div className="row">
-                    <div className="column small-12">
-                        <hr />
-                    </div>
+                    <div className="column small-12" />
                 </div>
 
                 <div className="row">

@@ -29,7 +29,7 @@
 .hap-fixed .hap-player-holder{
 	position: relative;
 	left:0;
-	background:#27363b;
+	background:black;
 	width: 100%;
     float: left;
     height: 60px;
@@ -51,7 +51,7 @@
 .hap-fixed .hap-btn:hover svg,
 .hap-fixed .hap-contr-btn:hover > svg,
 .hap-fixed .hap-contr-btn-hover svg{
-	color:#ffa48f;
+	color:#04F7FC;
 } 
 .hap-fixed .hap-contr-btn svg{
 	position: absolute;
@@ -134,6 +134,7 @@
     background-size: cover;
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
+	margin-left: 80px;
 }
 .hap-fixed .hap-info{
 	width: calc(50% - 135px);
@@ -155,7 +156,7 @@
 }
 .hap-fixed .hap-player-artist{
 	font-size:13px;
-	color:#ffa48f;
+	color:#04F7FC;
 	margin-left: 10px;
 	overflow: hidden;
 	white-space: nowrap;
@@ -227,7 +228,7 @@
 	top:0;
 	left:0;
 	height:100%;
-	background:#ffa48f;
+	background:#04F7FC;
 	-webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; 
 }
@@ -257,7 +258,7 @@
 }
 .hap-fixed .hap-progress-level{
 	position:absolute;
-	background:#ffa48f;
+	background:#04F7FC;
 	top:0;
 	height:100%;
 }
@@ -268,7 +269,7 @@
 .hap-fixed .hap-playlist-holder{
 	position:relative;
 	width:100%;
-	background:rgb(39 54 59);
+	background:#464C5E;
 	overflow:hidden;
 	border-top: 2px solid #444;
 }
@@ -344,7 +345,7 @@
 }
 .hap-fixed .hap-download:hover svg,
 .hap-fixed .hap-link:hover svg{
-	color:#ffa48f!important;
+	color:#04F7FC!important;
 }
 
 .hap-fixed .hap-playlist-filter-msg span{
@@ -408,13 +409,13 @@
 	border-bottom-color:#ccc;
 }
 .hap-fixed .hap-range-handle-a-hit:hover{
-	border-bottom-color:#ffa48f;
+	border-bottom-color:#04F7FC;
 }
 .hap-fixed .hap-range-handle-b-hit{
 	border-top-color:#ccc;
 }
 .hap-fixed .hap-range-handle-b-hit:hover{
-	border-top-color:#ffa48f;
+	border-top-color:#04F7FC;
 }
 
 .hap-fixed .hap-range-min-time,
@@ -426,7 +427,7 @@
 	background:#ccc;
 }
 .hap-fixed .hap-range-level{
-	background:#ffa48f;
+	background:#04F7FC;
 }
 
 /* playback rate */
@@ -454,15 +455,15 @@
 }
 .hap-fixed .hap-playback-rate-level,
 .hap-fixed .hap-playback-rate-drag{
-	background:#ffa48f;
+	background:#04F7FC;
 }
 
 .hap-fixed .hap-tooltip{
-	background:#ffa48f;
+	background:#04F7FC;
 	color:#fff!important;
 }
 .hap-fixed .hap-preloader {
-    background-color: #ffa48f;
+    background-color: #04F7FC;
 }
 
 /* lyrics popup */

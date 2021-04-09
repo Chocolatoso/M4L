@@ -6,6 +6,7 @@ export const searchWatches = [takeEvery('search/SEARCH_DISPATCH', search)];
 
 export function* search(action) {
     const { q, s, scroll_id } = action.payload;
+
     const append = action.payload.scroll_id ? true : false;
     yield put(reducer.searchPending({ pending: true }));
     try {
@@ -25,3 +26,9 @@ export function* search(action) {
     }
     yield put(reducer.searchPending({ pending: false }));
 }
+export const actions = {
+    search: payload => ({
+        type: 'search/SEARCH_DISPATCH',
+        payload,
+    }),
+};

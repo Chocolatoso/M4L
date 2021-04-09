@@ -14,6 +14,7 @@ export function* fetchUserProfile(action) {
     const { account, observer } = action.payload;
     const ret = yield call(getAccount, account, true);
     if (!ret) throw new Error('Account not found');
+
     yield put(
         userProfileActions.addProfile({ username: account, account: ret })
     );
@@ -28,6 +29,7 @@ export function* fetchWalletUserProfile(action) {
         state.app.getIn(['hostConfig', 'HIVE_ENGINE'])
     );
     const ret = yield call(getWalletAccount, account, useHive, scotTokenSymbol);
+
     if (!ret) throw new Error('Account not found');
     yield put(
         userProfileActions.addProfile({ username: account, account: ret })

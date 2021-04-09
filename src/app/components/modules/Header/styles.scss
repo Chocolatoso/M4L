@@ -6,8 +6,12 @@
   z-index: 100;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   @include themify($themes) {
-    background-color: themed('navBackgroundColor');
-    border-bottom: themed('border');
+   //anterior background-color: themed('navBackgroundColor');
+   // anterior border-bottom: themed('border');
+   background: transparent linear-gradient(180deg, var(---229ac4) 0%, #16637E 100%) 0% 0% no-repeat padding-box;
+   background: transparent linear-gradient(180deg, #229AC4 0%, #16637E 100%) 0% 0% no-repeat padding-box;
+   box-shadow: 0px 3px 13px #00000061;
+   opacity: 1;
   }
 }
 

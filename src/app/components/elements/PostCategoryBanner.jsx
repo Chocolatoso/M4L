@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Userpic from 'app/components/elements/Userpic';
 import { Link } from 'react-router';
-
+import tt from 'counterpart';
 import { actions as fetchDataSagaActions } from 'app/redux/FetchDataSaga';
 import * as transactionActions from 'app/redux/TransactionReducer';
 
@@ -51,7 +51,8 @@ class PostCategoryBanner extends React.Component {
                 )}
                 <div className="postTo">
                     <small>
-                        Posting to {community ? 'Community: ' : ''}
+                        {tt('reply_editor.posting_to')}{' '}
+                        {community ? 'Community: ' : ''}
                         <span className="smallLabel">{label}</span>
                     </small>
                 </div>

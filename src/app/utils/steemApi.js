@@ -52,6 +52,61 @@ async function callApi(url, params) {
         });
 }
 
+async function callApiP(url) {
+    return await axios({
+        url,
+        method: 'POST',
+        headers: {
+            accept: 'application/json, text/plain, ',
+            'accept-language': 'es-419,es;q=0.9',
+            'access-control-allow-origin': '*',
+            'content-type': 'application/json',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'cross-site',
+        },
+        data:
+            '{"jsonrpc":"2.0","id":12,"method":"find","params":{"contract":"market","table":"metrics","query":{"symbol":{"$in":["VIBES","VIBESM"]}},"limit":1000,"offset":0,"indexes":[]}}',
+    })
+        .then(response => response.data)
+        .then(result => {
+            return result.result[0].lastPrice;
+        })
+        .catch(err => {
+            console.error(`Could not fetch data, url: ${url}`);
+            return 0;
+        });
+}
+
+async function callApiH(url) {
+    return await axios({
+        url,
+        method: 'GET',
+        validateStatus: false,
+    })
+        .then(response => response.data)
+        .then(result => {
+            return result.hive.usd;
+        })
+        .catch(error => {
+            console.error(`Could not fetch data, url: ${url}`);
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+            }
+
+            return 0;
+        });
+}
+
 async function getSteemEngineAccountHistoryAsync(account, symbol, hive) {
     const transfers = await callApi(
         hive
@@ -102,6 +157,22 @@ export async function getAccount(account, useHive) {
     return profile ? profile : {};
 }
 
+export async function getVibesHivePrice() {
+    const data = await callApiP('https://api.hive-engine.com/rpc/contracts');
+    console.log('imprimiendo valor en hive ', data);
+
+    return data ? data : 0;
+}
+
+export async function getHiveUSDPrice() {
+    const data = await callApiH(
+        'https://api.coingecko.com/api/v3/simple/price?ids=hive&vs_currencies=usd&include_24hr_change=true'
+    );
+    console.log('imprimiendo valor en usd ', data);
+
+    return data ? data : 0;
+}
+
 export async function getWalletAccount(account, useHive, scotTokenSymbol) {
     const bridgeAccountObject = await getAccount(account, useHive);
 
@@ -114,6 +185,8 @@ export async function getWalletAccount(account, useHive, scotTokenSymbol) {
         transferHistory,
         tokenDelegations,
         accountObject,
+        vibesHivePrice,
+        hiveUSDPrice,
     ] = await Promise.all([
         // modified to get all tokens. - by anpigon
         engineApi.find('tokens', 'balances', {
@@ -130,6 +203,8 @@ export async function getWalletAccount(account, useHive, scotTokenSymbol) {
             symbol: scotTokenSymbol,
         }),
         await getAccountFromNodeApi(account, useHive),
+        await getVibesHivePrice(),
+        await getHiveUSDPrice(),
     ]);
 
     Object.assign(bridgeAccountObject, accountObject);
@@ -154,6 +229,13 @@ export async function getWalletAccount(account, useHive, scotTokenSymbol) {
     }
     if (tokenDelegations) {
         bridgeAccountObject.token_delegations = tokenDelegations;
+    }
+
+    if (vibesHivePrice) {
+        bridgeAccountObject.vibesPrice = vibesHivePrice;
+    }
+    if (hiveUSDPrice) {
+        bridgeAccountObject.hiveusdprice = hiveUSDPrice;
     }
     return bridgeAccountObject;
 }

@@ -2,7 +2,7 @@ import * as config from 'config';
 import React from 'react';
 import RadioPlayer from '../app/components/elements/RadioBar';
 
-export default function ServerHTML({    
+export default function ServerHTML({
     body,
     assets,
     locale,
@@ -19,7 +19,6 @@ export default function ServerHTML({
     cookieConsentApiKey,
     hostConfig,
 }) {
-
     let page_title = title;
     const faviconSubfolder = hostConfig['LIQUID_TOKEN_UPPERCASE'].toLowerCase();
     return (
@@ -66,98 +65,116 @@ export default function ServerHTML({
                     rel="manifest"
                     href={`/static/${faviconSubfolder}/manifest.json`}
                 />
-                <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    href={`/images/favicons/${faviconSubfolder}/apple-icon.png`}
+                />
                 <link
                     rel="apple-touch-icon"
                     sizes="57x57"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-57x57.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-57x57.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="60x60"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-60x60.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-60x60.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="72x72"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-72x72.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-72x72.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="76x76"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-76x76.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-76x76.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="114x114"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-114x114.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-114x114.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="120x120"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-120x120.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-120x120.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="144x144"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-144x144.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-144x144.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="152x152"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-152x152.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-152x152.png`}
                 />
                 <link
                     rel="apple-touch-icon"
                     sizes="180x180"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/apple-icon-180x180.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/apple-icon-180x180.png`}
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="192x192"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/android-icon-192x192.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/android-icon-192x192.png`}
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="32x32"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/favicon-32x32.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/favicon-32x32.png`}
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="96x96"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/favicon-96x96.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/favicon-96x96.png`}
                 />
                 <link
                     rel="icon"
                     type="image/png"
                     sizes="16x16"
-                    href={`/images/favicons/${faviconSubfolder
-                        }/favicon-16x16.png`}
+                    href={`/images/favicons/${
+                        faviconSubfolder
+                    }/favicon-16x16.png`}
                 />
                 <meta name="msapplication-TileColor" content="#ffffff" />
                 <meta
                     name="msapplication-TileImage"
-                    content={`/images/favicons/${faviconSubfolder
-                        }/ms-icon-144x144.png`}
+                    content={`/images/favicons/${
+                        faviconSubfolder
+                    }/ms-icon-144x144.png`}
                 />
                 <meta name="theme-color" content="#ffffff" />
                 <link
-                    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
+                    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700"
                     rel="stylesheet"
                     type="text/css"
                 />
@@ -205,13 +222,12 @@ export default function ServerHTML({
                         async
                     />
                 ) : null}
-                
+
                 <script
                     data-ad-client="ca-pub-9696019385031435"
                     async
                     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
                 />
-
 
                 {fomoId ? (
                     <script
@@ -264,25 +280,20 @@ export default function ServerHTML({
                     }}
                 />
 
-                <link
-                    src="/js/_global.css"
-                    rel="stylesheet"
-                    type="text/css" />
+                <link src="/js/_global.css" rel="stylesheet" type="text/css" />
 
                 <link
                     src="/js/jquery.mCustomScrollbar.css"
                     rel="stylesheet"
                     type="text/css"
-                    media="all" />
+                    media="all"
+                />
 
-                <script
-                    src="/js/jquery.js" />
-                <script
-                    src="/js/mCustomScrollbar.js" />
-                <script
-                    src="/js/jsmediatags.js" />
-                <script
-                    src="/js/new.js" />
+                <script src="/js/jquery.js" />
+                <script src="/js/mCustomScrollbar.js" />
+                <script src="/js/jsmediatags.js" />
+                <script src="/js/sharemanager.js" />
+                <script src="/js/new.js" />
 
                 <script
                     dangerouslySetInnerHTML={{
@@ -322,7 +333,7 @@ export default function ServerHTML({
                                     hidePlayerUntilMusicStart: false,
                                 };
                 
-                              
+                                player = $("#hap-wrapper").hap(settings);
                 
                                 //we ready baby
                             });
@@ -333,11 +344,9 @@ export default function ServerHTML({
 
                          `,
                     }}
-
                 />
 
                 <title>{page_title}</title>
-
             </head>
             <body>
                 {
@@ -363,7 +372,7 @@ export default function ServerHTML({
                     />
                       ) : null*/}
 
-               {/* <RadioPlayer />*/}
+                <RadioPlayer />
             </body>
         </html>
     );

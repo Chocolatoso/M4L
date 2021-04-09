@@ -1,12 +1,21 @@
 .Reputation {
+
+  background: #8D8E8F 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  opacity: 1;
+  padding: 2px;
+
   @include font-size(13px);
   line-height: 1;
-  padding: 0;
-  margin-left: -1px;
+  padding-left: 3px;
+  padding-top: 1px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  
   font-weight: normal;
   transition: 0.3s all ease-in-out;
   @include themify($themes) {
-    color: themed('textColorPrimary');
+    color: #fcfcfc;
   }  
   @include MQ(M) {
     @include font-size(14px);

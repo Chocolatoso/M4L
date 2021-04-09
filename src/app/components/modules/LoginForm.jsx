@@ -313,8 +313,7 @@ class LoginForm extends Component {
                 ? tt('loginform_jsx.password_info')
                 : null;
         const titleText = (
-            <h3>
-                {tt('loginform_jsx.returning_users')}
+            <h3 style={{ textAlign: 'center' }}>
                 <span className="OpAction">{title}</span>
             </h3>
         );
@@ -436,12 +435,15 @@ class LoginForm extends Component {
                         />&nbsp;{tt('loginform_jsx.keep_me_logged_in')}
                     </label>
                 </div>
-                <div className="login-modal-buttons">
+                <div
+                    className="login-modal-buttons"
+                    style={{ textAlign: 'center' }}
+                >
                     <br />
                     <button
                         type="submit"
                         disabled={submitting || disabled}
-                        className="button"
+                        className="button acept"
                     >
                         {submitLabel}
                     </button>
@@ -449,7 +451,7 @@ class LoginForm extends Component {
                         <button
                             type="button float-right"
                             disabled={submitting}
-                            className="button hollow"
+                            className="button cancel"
                             onClick={onCancel}
                         >
                             {tt('g.cancel')}
@@ -461,7 +463,9 @@ class LoginForm extends Component {
         );
 
         const loginWarningTitleText = (
-            <h3>{tt('loginform_jsx.login_warning_title')}</h3>
+            <h3 style={{ textAlign: 'center' }}>
+                {tt('loginform_jsx.login_warning_title')}
+            </h3>
         );
 
         const loginWarningForm = (

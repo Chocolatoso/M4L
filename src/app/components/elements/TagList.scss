@@ -9,15 +9,16 @@
     border-radius: 0.3rem;
     transition: 0.2s all ease-in-out;
     @include themify($themes) {
-      background: themed('backgroundColorOpaque');
-      color: themed('textColorPrimary');
-      border: themed('border');
+      border-radius: 6px;
+      opacity: 1;
+      color:white;
+      background: #229AC4 0% 0% no-repeat padding-box;
     }
     &:hover {
       @include themify($themes) {
-        background: themed('backgroundColor');
-        color: themed('textColorPrimary');
-        border: themed('borderDark');
+      //  background: themed('backgroundColor');
+      //  color: themed('textColorPrimary');
+      //  border: themed('borderDark');
       }
     }
   }

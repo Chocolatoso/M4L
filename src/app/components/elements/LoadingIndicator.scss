@@ -134,6 +134,8 @@
         top: 6px;
     }
     &.circle-strong {
+        display: grid;
+        place-items: center;
         padding-top:2em;
         padding-bottom:2em;
         div {
@@ -147,15 +149,15 @@
     }
 
     div {
-        width: $circle-radius;
-        height: $circle-radius;
+        width: 35px;
+        height: 35px;
         margin: 4px;
         @include themify($themes) {
-          border: 1px solid themed('colorAccent');
+        //  border: 1px solid themed('colorAccent');
         }
-        border-radius: 50%;
-        border-right-color: transparent;
-        border-top-color: transparent;
+        //border-radius: 50%;
+       // border-right-color: transparent;
+       // border-top-color: transparent;
         animation: loading 500ms infinite linear;
     }
 }

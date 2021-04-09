@@ -20,12 +20,16 @@
     padding: 2px;
 
     @include themify($themes) {
-      background-color: themed('backgroundColor');
-      border: themed('borderDark');    
+       
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 12px;
+      opacity: 1;  
+
     }
     transform: translateY(10%);
     transition: all 0.3s ease 0s, visibility 0s linear 0.3s;
-    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+    //box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
 
   }
 
@@ -61,4 +65,11 @@
       left: -50%;
     }
   }
+}
+
+
+ul.VerticalMenu.menu.vertical.newUi {
+  background: transparent linear-gradient( 
+360deg
+, #229AC4 0%, #16637E 100%) 0% 0% no-repeat padding-box !important;
 }

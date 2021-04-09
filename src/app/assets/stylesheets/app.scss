@@ -71,7 +71,7 @@ a, path, circle {
 
 .secondary {
   @include themify($themes) {
-    color: themed('textColorSecondary');
+    color: black;
   }
   font-size: 90%;
   a {
@@ -152,6 +152,7 @@ a, path, circle {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2 !important;
+  font-weight: bold !important;
 }
 
 .c-sidebar {
@@ -161,9 +162,9 @@ h1, h2, h3, h4, h5, h6 {
   &__module {
       padding: 1.5em 2em;
     @include themify($themes) {
-        background-color: themed('moduleBackgroundColor');
-        border: themed('border');
-        border-radius: 15px;
+      border-radius: 15px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 6px #00000029
     }
   }
 }
@@ -250,4 +251,9 @@ a[rel="nofollow noopener"]:after {
 
 .pointer {
     cursor: pointer;
+}
+
+
+ul {
+   list-style-type: none !important
 }

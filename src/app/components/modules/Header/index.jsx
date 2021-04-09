@@ -24,6 +24,7 @@ import GptAd from 'app/components/elements/GptAd';
 import ReviveAd from 'app/components/elements/ReviveAd';
 import SortOrder from 'app/components/elements/SortOrder';
 import ReactMutationObserver from '../../utils/ReactMutationObserver';
+import SvgImage from 'app/components/elements/SvgImage';
 
 class Header extends React.Component {
     static propTypes = {
@@ -195,6 +196,8 @@ class Header extends React.Component {
             page_title = tt('navigation.terms_of_service');
         } else if (route.page == 'CommunityRoles') {
             page_title = 'Community Roles';
+        } else if (route.page == 'HomePage') {
+            page_title = 'Home';
         } else if (route.page === 'UserProfile') {
             const user_name = route.params[0].slice(1);
             const user_title = display_name
@@ -264,7 +267,7 @@ class Header extends React.Component {
 
         const submit_story = $STM_Config.read_only_mode ? null : (
             <Link to="/submit.html">
-                <IconButton />
+                <SvgImage name="newPost" width="32px" height="32px" />
             </Link>
         );
 
@@ -314,40 +317,17 @@ class Header extends React.Component {
                 onUnfix={e => this.headroomOnUnfix(e)}
             >
                 <header className="Header">
-                    {this.props.announcement &&
-                        this.props.showAnnouncement &&
-                        shouldShowAnnouncement(
-                            this.props.announcement.get('id')
-                        ) && (
-                            <Announcement
-                                onClose={() =>
-                                    this.hideAnnouncement(
-                                        this.props.announcement.get('id')
-                                    )
-                                }
-                                id={this.props.announcement.get('id')}
-                                title={this.props.announcement.get('title')}
-                                link={this.props.announcement.get('link')}
-                            />
-                        )}
-                    {/* If announcement is shown, ad will not render unless it's in a parent div! */}
-                    <div style={showAd ? {} : { display: 'none' }}>
-                        <GptAd
-                            type="Freestar"
-                            id="steemit_728x90_970x90_970x250_320x50_ATF"
-                        />
-                    </div>
-                    <div style={showReviveAd ? {} : { display: 'none' }}>
-                        <ReviveAd adKey="header_banner" />
-                    </div>
-
                     <nav className="row Header__nav">
                         <div className="small-5 large-4 columns Header__logotype">
-                            {nightmodeEnabled ? <Link to={logo_link}>
-                                <AppLogoClaro />
-                            </Link> : <Link to={logo_link}>
-                                <AppLogo />
-                            </Link>}
+                            {nightmodeEnabled ? (
+                                <Link to={logo_link}>
+                                    <AppLogoClaro />
+                                </Link>
+                            ) : (
+                                <Link to={logo_link}>
+                                    <AppLogo />
+                                </Link>
+                            )}
                         </div>
 
                         <div className="large-4 columns show-for-large large-centered Header__sort">
@@ -366,12 +346,24 @@ class Header extends React.Component {
                                     <a
                                         className="Header__login-link"
                                         href="/login.html"
+                                        style={{
+                                            border: '2px solid #FFFFFF',
+                                            borderRadius: '15px',
+                                            opacity: '1',
+                                            padding: '7px',
+                                        }}
                                         onClick={showLogin}
                                     >
                                         {tt('g.login')}
                                     </a>
                                     <a
                                         className="Header__signup-link"
+                                        style={{
+                                            background:
+                                                '#10BED2 0% 0% no-repeat padding-box',
+                                            borderRadius: '15px',
+                                            opacity: '1',
+                                        }}
                                         href={
                                             preferHive
                                                 ? HIVE_SIGNUP_URL
@@ -384,7 +376,7 @@ class Header extends React.Component {
                             )}
 
                             {/*SUBMIT STORY*/}
-                            {submit_story}
+                            {loggedIn ? submit_story : ''}
                             {/*USER AVATAR */}
                             {loggedIn && (
                                 <DropdownMenu
@@ -406,7 +398,6 @@ class Header extends React.Component {
                                 </DropdownMenu>
                             )}
                             {/*HAMBURGER*/}
-
                         </div>
                     </nav>
                 </header>

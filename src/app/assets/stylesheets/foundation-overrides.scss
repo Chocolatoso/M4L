@@ -94,7 +94,7 @@ table {
 
 thead, tbody, tfoot {
   @include themify($themes) {
-    background-color: themed('backgroundColor');    
+   // background-color: themed('backgroundColor');    
   }     
 }
 
@@ -107,7 +107,7 @@ thead {
 
 tbody tr:nth-child(even) {
   @include themify($themes) {
-    background-color: themed('tableRowEvenBackgroundColor');  
+   // background-color: themed('tableRowEvenBackgroundColor');  
   }  
 }
 
@@ -125,6 +125,7 @@ tbody tr:nth-child(even) {
     background-color: themed('modalBackgroundColor');
     color: themed('modalTextColorPrimary');
     box-shadow: 0px 0px 0px 0 #30414A, 4px 4px 0 0 themed('colorAccent');
+    border-radius: 10px;
   }
   label {
     @include themify($themes) {

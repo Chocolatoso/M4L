@@ -8,6 +8,8 @@
 			}
 	}
 
+
+
 	.label {
 			color: #fff;
 			text-align: center;
@@ -20,9 +22,13 @@
 			border-radius: 2px;
 			font-size: 0.75rem;
 			vertical-align: 15%;
-			background-color: #999;
+			background: #229AC4 0% 0% no-repeat padding-box;
+			color:white !important;
+			border-radius: 6px;
+			opacity: 1;
+			padding: 6px;
 			border: 1px solid transparent;
-			font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-family: "Source Sans Pro", "Roboto", 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 			&[title] {
 					cursor: pointer;
@@ -59,4 +65,9 @@
 	span:focus {
 			outline: none;
 	}
+}
+
+
+.newUiLabel {
+	color: white !important;
 }

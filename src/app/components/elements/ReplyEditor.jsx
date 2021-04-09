@@ -747,7 +747,6 @@ class ReplyEditor extends React.Component {
                 className={classnames({
                     ReplyEditor: true,
                     row: true,
-                    'side-by-side': enableSideBySide,
                 })}
             >
                 <div
@@ -976,7 +975,7 @@ class ReplyEditor extends React.Component {
                             {isStory &&
                                 !isEdit && (
                                     <div className="ReplyEditor__options">
-                                        <h6>
+                                        <h6 style={{ fontWeight: ' bold' }}>
                                             {tt('reply_editor.post_options')}:
                                         </h6>
                                         <div>
@@ -995,20 +994,29 @@ class ReplyEditor extends React.Component {
                                                         }
                                                     </div>
                                                 )}
-                                            {(this.props.payoutType === '0%' || this.props.payoutType === '100%') && (<div>
-                                                {tt('g.rewards')}
-                                                {': '}
-                                                {this.props.payoutType ===
-                                                    '0%' &&
-                                                    tt(
-                                                        'reply_editor.decline_payout'
-                                                    )}
-                                                {this.props.payoutType ===
-                                                    '100%' &&
-                                                    tt(
-                                                        'reply_editor.power_up_100'
-                                                    ) + `(on ${hive ? 'Hive' : 'Steem'})`}
-                                            </div>)}
+                                            {(this.props.payoutType === '0%' ||
+                                                this.props.payoutType ===
+                                                    '100%') && (
+                                                <div>
+                                                    {tt('g.rewards')}
+                                                    {': '}
+                                                    {this.props.payoutType ===
+                                                        '0%' &&
+                                                        tt(
+                                                            'reply_editor.decline_payout'
+                                                        )}
+                                                    {this.props.payoutType ===
+                                                        '100%' &&
+                                                        tt(
+                                                            'reply_editor.power_up_100'
+                                                        ) +
+                                                            `(on ${
+                                                                hive
+                                                                    ? 'Hive'
+                                                                    : 'Steem'
+                                                            })`}
+                                                </div>
+                                            )}
                                             <div>
                                                 {beneficiaries &&
                                                     beneficiaries.length >
@@ -1053,7 +1061,7 @@ class ReplyEditor extends React.Component {
                             {!loading && (
                                 <button
                                     type="submit"
-                                    className="button"
+                                    className="buttonReply"
                                     disabled={disabled}
                                     tabIndex={4}
                                 >
@@ -1072,7 +1080,7 @@ class ReplyEditor extends React.Component {
                             {!loading &&
                                 this.props.onCancel && (
                                     <button
-                                        type="button"
+                                        type="buttonReply"
                                         className="secondary hollow button no-border"
                                         tabIndex={5}
                                         onClick={onCancel}
@@ -1083,7 +1091,7 @@ class ReplyEditor extends React.Component {
                             {!loading &&
                                 !this.props.onCancel && (
                                     <button
-                                        className="button hollow no-border"
+                                        className="buttonReply"
                                         tabIndex={5}
                                         disabled={submitting}
                                         onClick={onCancel}
@@ -1120,7 +1128,9 @@ class ReplyEditor extends React.Component {
                     })}
                 >
                     <div className="Preview-info">
-                        <h6>{tt('g.preview')}</h6>
+                        <h6 style={{ fontWeight: 'bold' }}>
+                            {tt('g.preview')}
+                        </h6>
                         {!isHtml && (
                             <div>
                                 <a
@@ -1454,7 +1464,8 @@ export default formId =>
                 const meta = isEdit ? jsonMetadata : {};
                 if (metaTags.size) meta.tags = metaTags.toJS();
                 else delete meta.tags;
-                if (rtags.usertags.size) meta.users = Array.from(rtags.usertags);
+                if (rtags.usertags.size)
+                    meta.users = Array.from(rtags.usertags);
                 else delete meta.users;
                 if (rtags.images.size)
                     meta.image = Array.from(rtags.images).slice(0, 1);

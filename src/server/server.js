@@ -103,7 +103,6 @@ app.use(
     )
 );
 
-
 app.use(
     mount(
         '/javascripts',
@@ -219,8 +218,22 @@ app.use(function*(next) {
 
     // redirect to home page/feed if known account
     if (this.method === 'GET' && this.url === '/' && this.session.a) {
+        console.log(
+            'DEBO MOSTRAR ESTO SOLO CUANDO ESTOY LOGEADO',
+            this.session.a
+        );
         this.status = 302;
         this.redirect(`/@${this.session.a}/feed`);
+        //this.redirect(`/trending/my`);
+        return;
+    }
+    if (this.method === 'GET' && this.url === '/' && !this.session.a) {
+        console.log(
+            'DEBO MOSTRAR ESTO SOLO CUANDO NOOO ESTOY LOGEADO',
+            this.session.a
+        );
+        this.status = 302;
+        this.redirect(`/home`);
         //this.redirect(`/trending/my`);
         return;
     }

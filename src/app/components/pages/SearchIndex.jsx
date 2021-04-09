@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import tt from 'counterpart';
-import { search } from 'app/redux/SearchReducer';
+import { actions } from 'app/redux/SearchSaga';
 import Callout from 'app/components/elements/Callout';
 import ElasticSearchInput from 'app/components/elements/ElasticSearchInput';
 import PostsList from 'app/components/cards/PostsList';
 import { List, Map, fromJS } from 'immutable';
+import GoogleAd from 'app/components/elements/GoogleAd';
 
 class SearchIndex extends React.Component {
     static propTypes = {
@@ -84,6 +85,14 @@ class SearchIndex extends React.Component {
                 <article className="articles">
                     <div className="articles__header row">
                         <div className="small-12 medium-12 large-12 column">
+                            <GoogleAd
+                                slot="8872331662"
+                                client="ca-pub-9696019385031435"
+                                format="fluid"
+                                layoutKey="-gk-2e-24-ec+1hw"
+                                fullWidthResponsive="true"
+                            />
+
                             <ElasticSearchInput
                                 initValue={params.q}
                                 expanded={true}
@@ -119,7 +128,7 @@ module.exports = {
             };
         },
         dispatch => ({
-            performSearch: args => dispatch(search(args)),
+            performSearch: args => dispatch(actions.search(args)),
         })
     )(SearchIndex),
 };

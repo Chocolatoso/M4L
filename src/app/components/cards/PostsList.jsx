@@ -27,6 +27,7 @@ class PostsList extends React.Component {
         loadMore: PropTypes.func,
         nsfwPref: PropTypes.string.isRequired,
         promoted: PropTypes.object,
+        interleavePromoted: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -118,6 +119,7 @@ class PostsList extends React.Component {
             order,
             nsfwPref,
             hideCategory,
+            interleavePromoted,
         } = this.props;
         const { thumbSize } = this.state;
         const renderSummary = items =>
@@ -134,9 +136,18 @@ class PostsList extends React.Component {
                 );
 
                 const summary = [];
-                summary.push(<li key={i}>{ps}</li>);
+                const isPromoted =
+                    interleavePromoted &&
+                    promoted &&
+                    promoted.contains(
+                        `${post.get('author')}/${post.get('permlink')}`
+                    );
+                summary.push(
+                    <li key={i} className={isPromoted ? 'liPromoted' : ''}>
+                        {ps}
+                    </li>
+                );
 
-                
                 return summary;
             });
 
@@ -205,6 +216,10 @@ export default connect(
             nsfwPref,
             shouldSeeAds,
             adSlots,
+            interleavePromoted: state.app.getIn(
+                ['hostConfig', 'INTERLEAVE_PROMOTED'],
+                false
+            ),
         };
     },
     dispatch => ({

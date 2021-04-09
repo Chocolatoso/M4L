@@ -1,6 +1,7 @@
 import App from 'app/components/App';
 import Benchmark from 'app/components/pages/Benchmark';
 import PostsIndex from 'app/components/pages/PostsIndex';
+import HomePage from 'app/components/pages/HomePage';
 import SearchIndex from 'app/components/pages/SearchIndex';
 import resolveRoute from './ResolveRoute';
 
@@ -97,6 +98,11 @@ export default {
             //require.ensure([], (require) => {
             //cb(null, [require('app/components/pages/PostsIndex')]);
             cb(null, [PostsIndex]);
+            //});
+        } else if (route.page === 'HomePage') {
+            //require.ensure([], (require) => {
+            //cb(null, [require('app/components/pages/PostsIndex')]);
+            cb(null, [HomePage]);
             //});
         } else {
             //require.ensure([], (require) => {

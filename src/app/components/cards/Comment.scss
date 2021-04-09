@@ -73,7 +73,7 @@
     }
     a {
       @include themify($themes) {
-        color: themed('textColorSecondary');
+        color: #0C1429  !important;
       }
     }
   }
@@ -94,9 +94,9 @@
 .Comment__header {
   @include themify($themes) {
     margin-left: 62px;
-    border-radius: themed('roundedCornersTop');
-    border: themed('border');
-    background: themed('moduleBackgroundColor');
+    //border-radius: themed('roundedCornersTop');
+  //  border: themed('border');
+   // background: themed('moduleBackgroundColor');
     padding: 3px 5px;
   }
 }
@@ -125,26 +125,26 @@
 .Comment .Comment__block .Comment__body {
   @include themify($themes) {
     margin-left: 62px;
-    border: themed('border');
+   // border: themed('border');
     padding: 0 5px;
     border-top: none;
     border-bottom: none;
     font-size: 90%;
-    background: themed('moduleBackgroundColor');
+    //background: themed('moduleBackgroundColor');
   }
 }
 
 .Comment .Comment__block .Comment__footer {
   @include themify($themes) {
     margin-left: 62px;
-    border: themed('border');
-    border-radius: themed('roundedCornersBottom');
+ //   border: themed('border');
+ //   border-radius: themed('roundedCornersBottom');
     padding: 3px 10px 5px 10px;
-    background: themed('moduleBackgroundColor');
+  //  background: themed('moduleBackgroundColor');
   }
 
   @include themify($themes) {
-    color: themed('textColorPrimary');
+    color: #0C1429  !important;
   }
   a {
    @extend .link;
@@ -152,7 +152,7 @@
   }
   .Voting__voters_list {
     @include themify($themes) {
-      border-right: themed('border');
+     // border-right: themed('border');
     }
     padding-right: 0.4rem;
     margin-right: 0.4rem;
@@ -180,7 +180,7 @@
   margin-top: 1.4rem;
   margin-left: 62px;
   @include themify($themes) {
-    border-left: themed('borderDotted');
+   // border-left: themed('borderDotted');
   }
   .Comment {
     margin-bottom: 1.4rem;
@@ -225,4 +225,12 @@
       padding-left: 0;
     }
   }
+}
+
+
+.Comment__block {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 12px;
+  opacity: 1;
 }

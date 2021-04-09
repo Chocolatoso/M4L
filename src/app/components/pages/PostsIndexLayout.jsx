@@ -16,7 +16,6 @@ import SidebarToken from 'app/components/elements/SidebarToken';
 import SidebarTokenPrice from 'app/components/elements/SidebarTokenPrice';
 import GoogleAd from 'app/components/elements/GoogleAd';
 
-
 class PostsIndexLayout extends React.Component {
     static propTypes = {
         username: PropTypes.string,
@@ -66,16 +65,8 @@ class PostsIndexLayout extends React.Component {
                 <article className="articles">{children}</article>
 
                 <aside className="c-sidebar c-sidebar--right">
-                    {isBrowser &&
-                        !community &&
-                        username && (
-                            <SidebarLinks
-                                username={username}
-                                topics={topics}
-                                scotTokenSymbol={scotTokenSymbol}
-                            />
-                        )}
-                    <Notices />
+                    {isBrowser && !community && username && <div />}
+
                     {this.props.showTokenStats &&
                         this.props.isBrowser &&
                         this.props.tokenStats && (
@@ -97,8 +88,7 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
-                                <SidebarTokenPrice
-                                />
+                                <SidebarTokenPrice />
                             </div>
                         )}
                     {this.props.showTokenStats &&
@@ -127,8 +117,7 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
-                                <SidebarTokenPrice
-                                />
+                                <SidebarTokenPrice />
                             </div>
                         )}
                     {this.props.showTokenStats &&
@@ -158,19 +147,23 @@ class PostsIndexLayout extends React.Component {
                                     )}
                                     useHive={this.props.hiveEngine}
                                 />
-                                <SidebarTokenPrice
-                                />
+                                <SidebarTokenPrice />
                             </div>
                         )}
                     {reviveEnabled && mqLarge ? (
                         <div className="sidebar-ad">
-                            <ReviveAd slot="2768289442" fullWidthResponsive="true" />
+                            <ReviveAd
+                                slot="2768289442"
+                                fullWidthResponsive="true"
+                            />
                         </div>
                     ) : null}
 
-
                     <div className="sidebar-ad">
-                        <GoogleAd slot="2768289442" fullWidthResponsive="true" />
+                        <GoogleAd
+                            slot="2768289442"
+                            fullWidthResponsive="true"
+                        />
                     </div>
 
                     {scotTokenSymbol === 'INFOWARS' && (
@@ -201,13 +194,13 @@ class PostsIndexLayout extends React.Component {
                         order={order}
                         categories={categories}
                         levels={max_levels}
+                        left={true}
                     />
                     {reviveEnabled && mqLarge ? (
                         <div className="sidebar-ad">
                             <ReviveAd adKey="sidebar_left" />
                         </div>
                     ) : null}
-
                 </aside>
             </div>
         );

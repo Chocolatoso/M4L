@@ -58,6 +58,7 @@ class TagInput extends React.Component {
                 tabIndex={tabIndex}
                 disabled={disabled}
                 autoCapitalize="none"
+                className="ReplyEditor__title"
                 placeholder={tt('reply_editor.tags_input')}
             />
         );

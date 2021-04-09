@@ -1,6 +1,7 @@
 .Author {
   display: inline-block;
 
+  
   .dropdown-arrow {
   	position: relative;
   	top: 3px;
@@ -11,7 +12,9 @@
   > span > strong > a {
       transition: 0.2s all ease-in-out;
       @include themify($themes) {
-        color: themed('textColorPrimary');
+        color: #464C5E !important;
+        font-weight: bold;
+        font-size: smaller;
       }
 
       &:hover, &:focus {

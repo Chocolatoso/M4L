@@ -24,6 +24,10 @@ const SortOrder = ({ topic, sortOrder, horizontal, pathname }) => {
 
         let out = [
             {
+                label: 'home',
+                value: `/home`,
+            },
+            {
                 label: tt('main_menu.trending'),
                 value: `/trending${tag}`,
             },

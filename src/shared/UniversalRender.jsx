@@ -338,7 +338,7 @@ export async function serverRender(
     } catch (e) {
         // Ensure 404 page when username not found
         if (location.match(routeRegex.UserProfile)) {
-            console.error('User/not found: ', location);
+            console.error('User/not found: ', location, e);
             return {
                 title: `Page Not Found - ${APP_NAME}`,
                 statusCode: 404,

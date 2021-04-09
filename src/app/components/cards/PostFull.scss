@@ -16,9 +16,10 @@
   max-width: 54rem;
   position: relative;
   @include themify($themes) {
-    border-radius: themed('roundedCorners');
-    border: themed('border');
-    background-color: themed('moduleBackgroundColor');
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    border-radius: 10px;
   }
   .button.hollow {
     @include themify($themes) {
@@ -96,6 +97,12 @@
 .PostFull__header, .PostFull__body {
   max-width: 48rem;
   margin: 0 auto;
+}
+
+.newUiTittle {
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .PostFull__header {
@@ -275,4 +282,46 @@ input.share-box {
     height: 2.8em;
     font-size: .8em;
   }
+}
+
+.entry-title { //revisar aqui
+  letter-spacing: 0px;
+    color: #0C1429;
+    opacity: 1;
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+
+.media {
+  align-items: flex-start;
+    display: flex;
+    text-align: inherit;
+}
+
+.media-content {
+  flex-basis: auto;
+  flex-grow: 1; 
+  flex-shrink: 1;
+  text-align: inherit;
+}
+
+
+.is-flex {
+  display: flex!important;
+} 
+
+.has-right-children {
+  justify-content: space-between!important;
+}
+
+
+.post-meta {
+    margin-left: 3.5rem;
+    margin-top: -1.75rem;
+}
+
+
+.mr2 {
+  margin-right: .5rem!important;
 }

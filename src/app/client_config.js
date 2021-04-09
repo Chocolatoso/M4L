@@ -12,9 +12,7 @@ const VIBES = {
     LIQUID_TOKEN_UPPERCASE: 'VIBES',
     APP_MAX_TAG: 10,
     SCOT_TAG: 'musicforlife',
-    TAG_LIST: fromJSOrdered([
-        'musicforlife',
-    ]),
+    TAG_LIST: fromJSOrdered(['musicforlife']),
     INTERLEAVE_PROMOTED: true,
     PROMOTED_POST_ACCOUNT: 'null',
     VESTING_TOKEN: 'VIBES POWER',
@@ -34,7 +32,7 @@ const VIBES = {
     SCOT_TAG_FIRST: false,
     PINNED_POSTS_URL: '',
     SDC_GTAG_MEASUREMENT_ID: 'G-NKTC91T19W',
-    SHOW_AUTHOR_RECENT_POSTS: true,
+    SHOW_AUTHOR_RECENT_POSTS: false,
     DISABLE_STEEM: true,
     PREFER_HIVE: true,
     HIVE_ENGINE: true,
@@ -43,16 +41,15 @@ const VIBES = {
     COMMUNITY_CATEGORY: 'hive-175836',
     GOOGLE_AD_ENABLED: true,
     DISCORD_SERVER: '780922943143673889',
-    DISCORD_CHANNEL: '780928321402699776', 
+    DISCORD_CHANNEL: '780928321402699776',
     GOOGLE_AD_CLIENT: 'ca-pub-9696019385031435',
 };
-
 
 export const CONFIG_MAP = {
     // testing heroku/local options
     'localhost:8080': VIBES,
     'www.musicforlife.io': VIBES,
-    'musicforlife.io': VIBES
+    'musicforlife.io': VIBES,
 };
 
 // FIXME figure out best way to do this on both client and server from env

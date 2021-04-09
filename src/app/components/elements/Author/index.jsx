@@ -179,9 +179,9 @@ class Author extends React.Component {
                     itemType="http://schema.org/Person"
                 >
                     <strong>
-                        <Link to={'/@' + author}>{author}</Link>
+                        <Link to={'/@' + author}>{'@' + author}</Link>
                     </strong>{' '}
-                    {false && <Reputation value={authorRep} />}
+                    {true && <Reputation value={authorRep} />}
                     {warn}
                     {userTitle}
                 </span>
@@ -195,14 +195,16 @@ class Author extends React.Component {
                     itemScope
                     itemType="http://schema.org/Person"
                 >
-                    <strong>
+                    <strong style={{ marginLeft: '7px' }}>
                         <Link
                             ref={link => {
                                 this.authorProfileLink = link;
                             }}
                             to={'/@' + author}
+                            style={{ color: '#464C5E !important' }}
                         >
-                            {author} {false && <Reputation value={authorRep} />}
+                            {'@' + author}{' '}
+                            {true && <Reputation value={authorRep} />}
                             <Icon name="dropdown-arrow" />
                         </Link>
                     </strong>

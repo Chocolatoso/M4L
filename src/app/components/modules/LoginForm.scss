@@ -28,10 +28,13 @@
     font-size: 1.2rem;
     text-transform: none;
   }
-  .button.hollow {
+  .button.cancel {
     border: 1px solid #ddd;
-    color: $color-blue-black;
+    color: white;
     transition: 0.2s all ease-in-out;
+    background: #464C5E 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    opacity: 1;
     @include font-size(16px);
 
     &:hover {
@@ -42,6 +45,13 @@
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
     }
   }
+  .button.acept {
+    color: white;
+    background: #229AC4 0% 0% no-repeat padding-box;
+border-radius: 6px;
+opacity: 1;
+  }
+  
   em {
     font-weight: bold;
     font-style: normal;

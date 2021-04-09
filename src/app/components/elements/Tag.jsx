@@ -15,7 +15,18 @@ const Tag = ({ post, community }) => {
     }
 
     return (
-        <Link to={`/trending/${tag}`} key={tag}>
+        <Link
+            to={`/trending/${tag}`}
+            key={tag}
+            style={{
+                background: '#229AC4 0% 0% no-repeat padding-box',
+                padding: '5px',
+                borderRadius: '6px',
+                color: 'white',
+                fontWeight: 'normal',
+                fontSize: '13px',
+            }}
+        >
             {name}
         </Link>
     );

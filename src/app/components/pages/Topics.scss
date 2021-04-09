@@ -19,3 +19,30 @@ ul.Topics {
   font-size: 1.125rem;
   margin: 0 0 1rem 0;
 }
+
+
+.c-sidebar__list-item {
+  border-radius: 6px;
+  opacity: 1;
+  margin-bottom: 5px;
+}
+.c-sidebar__list-item__left {
+background: var(---229ac4) 0% 0% no-repeat padding-box;
+background: #229AC4 0% 0% no-repeat padding-box;
+border-radius: 6px;
+opacity: 1;
+margin-bottom: 5px;
+}
+.sidebar__link {
+  color: #0C1429
+}
+
+
+.newuileft {
+  background: transparent !important;
+    box-shadow: unset !important;
+}
+
+.newuileft__link {
+  color:#0C1429 !important;
+}

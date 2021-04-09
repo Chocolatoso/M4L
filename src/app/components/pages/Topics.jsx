@@ -54,6 +54,7 @@ class Topics extends Component {
         compact: PropTypes.bool.isRequired,
         order: PropTypes.string,
         categories: PropTypes.object,
+        left: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -99,6 +100,7 @@ class Topics extends Component {
             communities,
             categories,
             communityMap,
+            left,
         } = this.props;
         const currentOrder = this.props.order;
         const order = currentOrder == 'feed' ? 'trending' : currentOrder;
@@ -123,7 +125,7 @@ class Topics extends Component {
                 categories
                     .map(cat => {
                         const { tag, label } = parseCategory(cat, communityMap);
-                        
+
                         const link = order ? `/${order}/${tag}` : `/${tag}`;
                         return { value: link, label: label };
                     })
@@ -216,7 +218,7 @@ class Topics extends Component {
             const { tag, label } = parseCategory(cat, communityMap);
             const link = order ? `/${order}/${tag}` : `/hot/${tag}`;
             return (
-                <li className="c-sidebar__list-item" key={tag}>
+                <li className="c-sidebar__list-item__left" key={tag}>
                     <Link
                         to={link}
                         className="c-sidebar__link"
@@ -228,14 +230,17 @@ class Topics extends Component {
             );
         });
         return (
-            <div className="c-sidebar__module">
+            <div className={'c-sidebar__module ' + (left ? 'newuileft' : '')}>
                 <div className="c-sidebar__content">
                     <ul className="c-sidebar__list">
                         <li className="c-sidebar__list-item">
                             <div className="c-sidebar__header">
                                 <Link
                                     to={'/' + order}
-                                    className="c-sidebar__link"
+                                    className={
+                                        'c-sidebar__link ' +
+                                        (left ? 'newuileft__link' : '')
+                                    }
                                     activeClassName="active"
                                 >
                                     {tt('g.all_tags')}
@@ -322,7 +327,10 @@ export default connect(
         categories.forEach(c => {
             const { tag } = parseCategory(c);
             if (ifHivemind(tag)) {
-                communityMap[tag] = state.global.getIn(['community', ifHivemind(tag), 'title'], null);
+                communityMap[tag] = state.global.getIn(
+                    ['community', ifHivemind(tag), 'title'],
+                    null
+                );
             }
         });
         return {

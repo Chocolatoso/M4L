@@ -10,19 +10,21 @@
 
   svg path, svg polygon {
     @include themify($themes) {
-        fill: themed('textColorSecondary');  
+        fill: white;  
     }      
   }
 
   > li > a {
-    color: $black;
+    //color: $black;
     line-height: 1rem;
     position: relative;
-    transition: 0.2s all ease-in-out;
+    //transition: 0.1s all ease-in-out;
   }
 
   > li > a:hover {
     text-decoration: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     @include themify($themes) {
       background-color: themed('backgroundColorOpaque');
     }
@@ -31,8 +33,9 @@
   > li.title {
     padding: 0.4rem;
     font-weight: bold;
-    text-align:left;
+    text-align:center;
     padding-left: 16px;
+    color:white;
     @include themify($themes) {
       border-bottom: themed('border');
     }    

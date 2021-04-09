@@ -182,13 +182,18 @@ class PostSummary extends React.Component {
 
         const content_body = (
             <div className="PostSummary__body entry-content">
-                <Link to={post_url}>{summary}</Link>
+                <Link
+                    to={post_url}
+                    style={{ color: '#464C5E', whiteSpace: 'break-spaces' }}
+                >
+                    {summary}
+                </Link>
             </div>
         );
 
         const content_title = (
             <h2 className="articles__h2 entry-title">
-                <Link to={post_url}>
+                <Link to={post_url} style={{ color: '#0C1429' }}>
                     {isNsfw && <span className="nsfw-flag">nsfw</span>}
                     {post.get('title')}
                 </Link>
@@ -319,19 +324,6 @@ class PostSummary extends React.Component {
             <div className="articles__summary-footer">
                 {dots}
                 <Voting post={post} showList={false} />
-                <VotesAndComments
-                    post={post}
-                    commentsLink={post_url + '#comments'}
-                />
-                <span className="PostSummary__time_author_category">
-                    {showReblog && (
-                        <Reblog
-                            author={post.get('author')}
-                            permlink={post.get('permlink')}
-                            hive={hive}
-                        />
-                    )}
-                </span>
             </div>
         );
 
@@ -435,11 +427,7 @@ class PostSummary extends React.Component {
         }
 
         return (
-            <div
-                className={
-                    'articles__summary' + (isPromoted ? ' promoted' : '')
-                }
-            >
+            <div className={'articles__summary' + (isPromoted ? '' : '')}>
                 {reblogged_by}
                 {crossPostedBy}
                 {summary_header}

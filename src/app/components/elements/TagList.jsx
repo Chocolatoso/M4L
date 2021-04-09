@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 function getDisplayTag(tag, hiveTag, appName) {
-    return tag === hiveTag ? appName : ` #${tag} `;
+    return tag === hiveTag ? appName : `${tag} `;
 }
 
 import { normalizeTags } from 'app/utils/StateFunctions';
